@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Fi - Equipment Compendium</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Project Fi</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="rules.html" class="nav-link">Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="equipment.html" class="nav-link active">Equipment</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="page-hero fade-in-up">
+            <div class="container">
+                <h1>Equipment Compendium</h1>
+                <p>Browse weapons, armor, and magical items</p>
+            </div>
+        </section>
+
+        <section class="equipment-section">
+            <div class="container">
+                <div class="equipment-filters fade-in-up">
+                    <button class="filter-btn active" data-category="all">All Items</button>
+                    <button class="filter-btn" data-category="weapons">Weapons</button>
+                    <button class="filter-btn" data-category="armor">Armor</button>
+                    <button class="filter-btn" data-category="potions">Potions</button>
+                    <button class="filter-btn" data-category="magical">Magical Items</button>
+                </div>
+
+                <div class="equipment-grid" id="equipment-grid">
+                    <!-- Equipment items will be dynamically loaded here -->
+                    <div class="loading">Loading equipment...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Project Fi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/equipment.js"></script>
+</body>
+</html>
