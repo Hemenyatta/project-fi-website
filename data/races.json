@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Human",
+        "description": "Versatile and adaptable, humans are the most common race in many worlds. They excel in all professions and can adapt to any situation.",
+        "traits": [
+            "+1 to all ability scores",
+            "One additional skill proficiency",
+            "Bonus feat at 1st level"
+        ],
+        "languages": ["Common", "One additional language of choice"]
+    },
+    {
+        "name": "Elf",
+        "description": "Graceful and long-lived, elves possess keen senses and a natural affinity for magic. They are masters of the bow and skilled in arcane arts.",
+        "traits": [
+            "+2 Dexterity, +1 Intelligence",
+            "Darkvision (60 feet)",
+            "Keen Senses: Proficiency in Perception",
+            "Trance: 4 hours of meditation instead of 8 hours sleep"
+        ],
+        "languages": ["Common", "Elvish"]
+    },
+    {
+        "name": "Dwarf",
+        "description": "Hardy and resilient, dwarves are master craftsmen and fierce warriors. They have an innate resistance to poison and magic.",
+        "traits": [
+            "+2 Constitution, +1 Strength",
+            "Darkvision (60 feet)",
+            "Dwarven Resilience: Resistance to poison",
+            "Stonecunning: Proficiency in History checks related to stonework"
+        ],
+        "languages": ["Common", "Dwarvish"]
+    },
+    {
+        "name": "Halfling",
+        "description": "Small and nimble, halflings are known for their luck and courage. Despite their size, they make formidable adventurers.",
+        "traits": [
+            "+2 Dexterity, +1 Charisma",
+            "Lucky: Reroll natural 1s",
+            "Brave: Advantage against being frightened",
+            "Halfling Nimbleness: Move through spaces of larger creatures"
+        ],
+        "languages": ["Common", "Halfling"]
+    },
+    {
+        "name": "Orc",
+        "description": "Strong and fierce, orcs are natural warriors with an indomitable spirit. They thrive in battle and never back down from a challenge.",
+        "traits": [
+            "+2 Strength, +1 Constitution",
+            "Darkvision (60 feet)",
+            "Relentless Endurance: Drop to 1 HP instead of 0 once per long rest",
+            "Savage Attacks: Extra damage die on critical hits"
+        ],
+        "languages": ["Common", "Orcish"]
+    },
+    {
+        "name": "Dragonborn",
+        "description": "Proud dragon-descended warriors, dragonborn combine draconic heritage with humanoid form. They can breathe destructive energy.",
+        "traits": [
+            "+2 Strength, +1 Charisma",
+            "Draconic Ancestry: Choose dragon type for breath weapon",
+            "Breath Weapon: Area damage based on ancestry",
+            "Damage Resistance: Resistance to breath weapon damage type"
+        ],
+        "languages": ["Common", "Draconic"]
+    }
+]

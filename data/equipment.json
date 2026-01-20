@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Longsword",
+        "type": "weapons",
+        "category": "Weapons",
+        "description": "A versatile blade forged from tempered steel, balanced for both slashing and thrusting attacks.",
+        "damage": "1d8",
+        "cost": "15 gold"
+    },
+    {
+        "name": "Battleaxe",
+        "type": "weapons",
+        "category": "Weapons",
+        "description": "A heavy axe with a broad blade, designed to cleave through armor and bone.",
+        "damage": "1d10",
+        "cost": "10 gold"
+    },
+    {
+        "name": "Shortbow",
+        "type": "weapons",
+        "category": "Weapons",
+        "description": "A compact ranged weapon perfect for hunters and scouts.",
+        "damage": "1d6",
+        "cost": "25 gold"
+    },
+    {
+        "name": "Plate Armor",
+        "type": "armor",
+        "category": "Armor",
+        "description": "Heavy armor consisting of shaped, interlocking metal plates covering the entire body.",
+        "defense": "+8 AC",
+        "cost": "1500 gold"
+    },
+    {
+        "name": "Leather Armor",
+        "type": "armor",
+        "category": "Armor",
+        "description": "Light armor made of supple leather, offering protection without hindering movement.",
+        "defense": "+2 AC",
+        "cost": "10 gold"
+    },
+    {
+        "name": "Shield",
+        "type": "armor",
+        "category": "Armor",
+        "description": "A sturdy wooden shield reinforced with metal bands.",
+        "defense": "+2 AC",
+        "cost": "10 gold"
+    },
+    {
+        "name": "Health Potion",
+        "type": "potions",
+        "category": "Potions",
+        "description": "A crimson elixir that restores vitality when consumed.",
+        "effect": "Restore 2d4+2 HP",
+        "cost": "50 gold"
+    },
+    {
+        "name": "Mana Potion",
+        "type": "potions",
+        "category": "Potions",
+        "description": "A glowing blue liquid that restores magical energy.",
+        "effect": "Restore 2d4+2 MP",
+        "cost": "75 gold"
+    },
+    {
+        "name": "Antidote",
+        "type": "potions",
+        "category": "Potions",
+        "description": "A bitter remedy that neutralizes poisons and toxins.",
+        "effect": "Cure poison",
+        "cost": "50 gold"
+    },
+    {
+        "name": "Ring of Protection",
+        "type": "magical",
+        "category": "Magical Items",
+        "description": "A silver ring inscribed with protective runes that ward against harm.",
+        "effect": "+1 AC, +1 to saving throws",
+        "cost": "Rare"
+    },
+    {
+        "name": "Staff of Fire",
+        "type": "magical",
+        "category": "Magical Items",
+        "description": "A wooden staff topped with a ruby that crackles with flame magic.",
+        "effect": "Cast Fireball 3/day",
+        "cost": "Very Rare"
+    },
+    {
+        "name": "Cloak of Elvenkind",
+        "type": "magical",
+        "category": "Magical Items",
+        "description": "A gossamer cloak that helps its wearer blend into surroundings.",
+        "effect": "Advantage on Stealth checks",
+        "cost": "Uncommon"
+    }
+]
