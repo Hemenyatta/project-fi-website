@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta
+name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbre de
+Talents - Project FI</title>
+  <style>
+    :root {
+        --scale-factor: 1;
+   
+}
+
+    body, html {
+      background-color: transparent;
+      color: white;
+     
+font-family: "Corben", sans-serif;
+      margin: 0;
+      padding: 0;
+     
+height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Carousel des
+classes */
+    #carousel-container {
+      position: relative;
+      width:
+100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+     
+align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-arrow {
+     
+position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+     
+width: 50px;
+      height: 50px;
+      background-color: rgba(255, 215, 0, 0.2);
+ 
+    border: 2px solid #E6D1B4;
+      border-radius: 50%;
+      cursor:
+pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+     font-size: 24px;
+      color: #E6D1B4;
+      transition: all 0.3s ease;
+  
+   z-index: 100;
+    }
+
+    .carousel-arrow:hover {
+      background-color:
+rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+
+ 
+  .carousel-arrow.left {
+      left: 20px;
+    }
+
+    .carousel-arrow.right {
+ 
+    right: 20px;
+    }
+
+    #carousel-wrapper {
+      position: relative;
+     
+width: 100%;
+      height: 100%;
+      overflow: hidden;
+      margin: 0 auto;
+
+     flex: 1;
+      display: flex;
+      align-items: center;
+     
+justify-content: center;
+    }
+
+    #carousel {
+      display: flex;
+      height: 100%;
+  
+   width: 100%;
+      transition: transform 1.2s cubic-bezier(0.4, 0.0, 0.2,
+1);
+    }
+
+    .tree-slot {
+      flex: 1;
+      position: relative;
+     
+min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items:
+center;
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+    }
+
+   
+.tree-slot.active {
+      opacity: 1;
+      z-index: 10;
+    }
+
+   
+.tree-slot.prev,
+    .tree-slot.next {
+      opacity: 0.2;
+    }
+
+    .tree-container {
+       
+position: absolute;
+        width: 100%;
+        height: 100%;
+       
+overflow: hidden;
+        display: flex;
+        justify-content: center;
+       
+align-items: center;
+        background-color: transparent;
+        top: 0;
+left: 0;
+    }
+
+    .tree {
+        position: absolute;
+        width: 1200px;
+   
+    height: 1500px;
+        transform-origin: center;
+        transform:
+scale(var(--scale-factor, 1));
+        background-color: transparent;
+        opacity:
+1;
+        transition: opacity 0.4s ease-in-out;
+        top: 50%;
+       
+left: 50%;
+        margin-left: -600px;
+        margin-top: -750px;
+    }
+
+   
+.tree.fade-out {
+        opacity: 0;
+    }
+
+    .node {
+      position: absolute;
+   
+  cursor: pointer;
+      transition: transform 0.2s, filter 0.3s ease;
+     
+width: 65px;
+      height: 65px;
+      transform: translate(-50%, -50%);
+     
+overflow: visible;
+    }
+
+    .node:hover:not(.locked) {
+      transform:
+translate(-50%, -50%) scale(1.2);
+    }
+
+    .node.locked {
+      cursor: not-allowed;
+  
+   opacity: 0.5;
+      filter: grayscale(60%) brightness(0.8);
+    }
+
+   
+.node.locked:hover {
+      transform: translate(-50%, -50%);
+    }
+
+    .node-img {
+ 
+    width: 100%;
+      height: 100%;
+      border-radius: 50%;
+     
+object-fit: cover;
+      border: 3px solid transparent;
+      transition: all 0.3s ease;
+ 
+    position: relative;
+      z-index: 1;
+    }
+
+    .node.active .node-img {
+ 
+    border: 3px solid #e6d1b4;
+      box-shadow: 0 0 15px rgba(230, 209, 180,
+0.7);
+      animation: pulse 2s infinite;
+      transform: scale(1.15);
+    }
+
+  
+ .node.active::before {
+      content: '';
+      position: absolute;
+      top:
+-8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+     
+border-radius: 50%;
+      background: radial-gradient(circle, rgba(230, 209, 180, 0.3) 0%,
+rgba(230, 209, 180, 0) 70%);
+      z-index: 0;
+      pointer-events: none;
+    
+ animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes
+glow-pulse {
+      0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(230, 209, 180, 0.6);
+    
+ }
+      50% { 
+        box-shadow: 0 0 20px 5px rgba(230, 209, 180, 0.2);
+    
+ }
+    }
+
+    .connection {
+      position: absolute;
+      height: 3px;
+     
+background-color: #888;
+      transform-origin: 0 0;
+      z-index: -1;
+     
+transition: all 0.3s ease;
+    }
+
+    .connection.active {
+      background-color:
+#e6d1b4;
+      height: 5px;
+      box-shadow: 0 0 12px rgba(230, 209, 180,
+0.8), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255,
+255, 255, 0.3);
+    }
+
+    .node.highlight {
+      filter: drop-shadow(0 0 12px
+rgba(230, 209, 180, 0.5));
+    }
+
+    .node.highlight .node-img {
+        border:
+3px solid rgba(230, 209, 180, 0.4);
+    }
+
+    .connection.highlight {
+     
+background-color: rgba(230, 209, 180, 0.5);
+      box-shadow: 0 0 10px rgba(230,
+209, 180, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+      border: 1px solid
+rgba(230, 209, 180, 0.5);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0
+0 0 0 rgba(230, 209, 180, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(230,
+209, 180, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(230, 209, 180, 0); }
+   
+}
+
+    /* Amélioration des tooltips */
+   
+.tippy-box[data-theme~='talent-tooltip'] {
+        background-color: #1a1f33;
+        color: white;
+        border:
+2px solid #e6d1b4;
+        border-radius: 8px;
+        padding: 0;
+       
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(230, 209, 180, 0.2);
+font-family: "Corben", sans-serif;
+    }
+
+   
+.tippy-box[data-theme~='talent-tooltip'][data-placement^='top'] > .tippy-arrow {
+        border-top-color:
+#e6d1b4;
+    }
+
+    .tippy-box[data-theme~='talent-tooltip'][data-placement^='bottom'] >
+.tippy-arrow {
+        border-bottom-color: #e6d1b4;
+    }
+
+   
+.tippy-box[data-theme~='talent-tooltip'][data-placement^='left'] > .tippy-arrow {
+       
+border-left-color: #e6d1b4;
+    }
+
+   
+.tippy-box[data-theme~='talent-tooltip'][data-placement^='right'] > .tippy-arrow {
+        border-right-color: #e6d1b4;
+   
+}
+
+    .tooltip-content {
+        padding: 24px 32px;
+    }
+
+    .tooltip-title {
+
+       font-size: 26px;
+        font-weight: bold;
+        color: #e6d1b4;
+    
+   margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .tooltip-description {
+        font-size: 20px;
+       
+color: #e0e0e0;
+        margin-bottom: 14px;
+        line-height: 1.4;
+    }
+
+   
+.tooltip-status {
+        border-top: 1px solid rgba(230, 209, 180, 0.3);
+      
+ padding-top: 12px;
+        margin-top: 12px;
+        font-size: 18px;
+       
+text-align: center;
+    }
+
+    .tooltip-status.active {
+        color: #4ade80;
+
+   }
+
+    .tooltip-status.available {
+        color: #e6d1b4;
+    }
+
+   
+.tooltip-status.locked {
+        color: #ef4444;
+    }
+
+    /* Classe pour les arbres
+inactifs */
+    .tree-slot:not(.active) .tree {
+      pointer-events: none;
+   
+}
+
+  </style>
+  <link rel="stylesheet"
+href="https://unpkg.com/tippy.js@6/animations/scale.css">
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+ 
+<script src="https://unpkg.com/tippy.js@6"></script>
+</head>
+<body>
+  <div
+id="carousel-container">
+    <div class="carousel-arrow left"
+id="carousel-left">❮</div>
+    
+    <div id="carousel-wrapper">
+      <div id="carousel">
+        <!--
+Les slots seront générés par JavaScript -->
+      </div>
+    </div>
+    
+   
+<div class="carousel-arrow right" id="carousel-right">❯</div>
+  </div>
+
+  <script
+src="script.js"></script>
+</body>
+</html>
