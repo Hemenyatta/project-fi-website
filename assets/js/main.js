@@ -117,8 +117,3 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c Built with vanilla JavaScript ', 
         'color: #586DCF; font-size: 14px;');
 });
-
-// Add passive event listeners for better scroll performance
-window.addEventListener('scroll', function() {
-    // This is handled by individual scroll handlers above
-}, { passive: true });
