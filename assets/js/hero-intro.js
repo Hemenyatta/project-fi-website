@@ -76,7 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const transitionProgress = (scrollTop - (heroIntroHeight * 0.6)) / (heroIntroHeight * 0.4);
             
             // Fade out du fond noir
-            introBgGradient.style.opacity = Math.max(0, 1 - transitionProgress);
+            if (introBgGradient) {
+                introBgGradient.style.opacity = Math.max(0, 1 - transitionProgress);
+            }
             
             // Fade out de la phrase
             if (introContentWrapper) {
@@ -90,7 +92,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Révéler la navbar en même temps que l'illustration
-            navbarMain.classList.add('revealed');
+            if (navbarMain) {
+                navbarMain.classList.add('revealed');
+            }
         } else {
             // Cacher l'illustration et la navbar si on scroll vers le haut
             if (parallaxIllustration) {
@@ -101,8 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (introContentWrapper) {
                 introContentWrapper.style.opacity = 1;
             }
-            navbarMain.classList.remove('revealed');
-            introBgGradient.style.opacity = 1;
+            if (navbarMain) {
+                navbarMain.classList.remove('revealed');
+            }
+            if (introBgGradient) {
+                introBgGradient.style.opacity = 1;
+            }
         }
 
         // Écran 2: Effet parallaxe sur les 3 couches + premier plan overlay
