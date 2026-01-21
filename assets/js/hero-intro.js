@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const parallaxOverlay = document.querySelector('.parallax-overlay');
     const introContentWrapper = document.querySelector('.intro-content-wrapper');
 
-    if (!introPhrase || !heroIntroSection) return;
+    // Vérification stricte: si les éléments essentiels n'existent pas, ne pas continuer
+    if (!introPhrase || !heroIntroSection || !introBgGradient || !navbarMain) {
+        return;
+    }
 
     // Split text into characters (préserver les espaces et les <br>)
     const originalHTML = introPhrase.innerHTML;
