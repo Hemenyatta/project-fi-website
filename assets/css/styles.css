@@ -30,7 +30,6 @@ body {
     color: var(--secondary-color);
     line-height: 1.6;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -152,7 +151,6 @@ a:hover {
     justify-content: center;
     overflow: hidden;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
 }
 
 .intro-bg-gradient {
