@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: "Cristalomancien",
-                    description: "Manipulateur des énergies cristallines et de leurs pouvoirs"
+                    description: "Manipulateur des énergies cristallines et de leurs pouvoirs",
+                    talentTree: "class1"
                 },
                 {
                     name: "Anathème",
@@ -66,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: "Mécanicien",
-                    description: "Inventeur de merveilles technologiques et d'automates"
+                    description: "Inventeur de merveilles technologiques et d'automates",
+                    talentTree: "class2"
                 },
                 {
                     name: "Forgeron",
@@ -84,7 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: "Druide",
-                    description: "Gardien de l'équilibre naturel et métamorphe"
+                    description: "Gardien de l'équilibre naturel et métamorphe",
+                    talentTree: "class3"
                 },
                 {
                     name: "Disciple",
@@ -103,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const className = document.getElementById('className');
     const classDescription = document.getElementById('classDescription');
     const classDots = document.getElementById('classDots');
+    const talentTreeIframe = document.getElementById('talentTreeIframe');
     
     const prevArchetypeBtn = document.getElementById('prevArchetype');
     const nextArchetypeBtn = document.getElementById('nextArchetype');
@@ -128,6 +132,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         className.textContent = currentClass.name;
         classDescription.textContent = currentClass.description;
+        
+        // Mettre à jour l'iframe du talent tree si la classe a un arbre défini
+        if (talentTreeIframe && currentClass.talentTree) {
+            talentTreeIframe.src = `../talent-tree/index.html?class=${currentClass.talentTree}`;
+        }
         
         // Mettre à jour les points de navigation
         updateClassDots();

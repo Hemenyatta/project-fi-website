@@ -6,8 +6,12 @@
 */
 
 html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y scroll;
     scroll-padding-top: 0;
+}
+
+main {
+    /* scroll-snap container now handled by html */
 }
 :root {
     --primary-bg: #151A32;
@@ -150,7 +154,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    scroll-snap-align: start;
+    scroll-snap-align: none;
 }
 
 .intro-bg-gradient {

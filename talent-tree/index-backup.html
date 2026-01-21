@@ -400,10 +400,13 @@ href="https://unpkg.com/tippy.js@6/animations/scale.css">
   <script src="https://unpkg.com/@popperjs/core@2"></script>
  
 <script src="https://unpkg.com/tippy.js@6"></script>
-<style>.carousel-arrow { display: none !important; }</style></head>
+</head>
 <body>
   <div
 id="carousel-container">
+    <div class="carousel-arrow left"
+id="carousel-left">❮</div>
+    
     <div id="carousel-wrapper">
       <div id="carousel">
         <!--
@@ -412,8 +415,10 @@ Les slots seront générés par JavaScript -->
     </div>
     
    
-</div>
-  <script src="script.js"></script>
-  <script src="script-override.js"></script>
+<div class="carousel-arrow right" id="carousel-right">❯</div>
+  </div>
+
+  <script
+src="script.js"></script>
 </body>
 </html>

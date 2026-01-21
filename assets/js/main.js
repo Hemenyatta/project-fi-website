@@ -111,6 +111,87 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Full Page Scroll after intro
+    const heroIntro = document.querySelector('.hero-intro');
+    const sections = document.querySelectorAll('.parallax-illustration, .intro-section, .cta-section');
+    let isScrolling = false;
+    let scrollTimeout;
+
+    function scrollToSection(index) {
+        if (index >= 0 && index < sections.length) {
+            isScrolling = true;
+            const section = sections[index];
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }
+    }
+
+    window.addEventListener('wheel', function(e) {
+        const scrollTop = window.pageYOffset;
+        const introHeight = heroIntro ? heroIntro.offsetHeight : 0;
+        
+        // Only apply full page scroll after intro
+        if (scrollTop >= introHeight - 50 && !isScrolling) {
+            e.preventDefault();
+            
+            // Find current section based on viewport position
+            let currentIndex = -1;
+            const viewportMiddle = scrollTop + window.innerHeight / 2;
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (viewportMiddle >= sectionTop && viewportMiddle < sectionBottom) {
+                    currentIndex = index;
+                }
+            });
+            
+            // If no section found, find closest one
+            if (currentIndex === -1) {
+                let minDistance = Infinity;
+                sections.forEach((section, index) => {
+                    const distance = Math.abs(section.offsetTop - scrollTop);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        currentIndex = index;
+                    }
+                });
+            }
+            
+            // Scroll to next or previous section
+            if (e.deltaY > 0) {
+                // Scrolling down
+                if (currentIndex < sections.length - 1) {
+                    scrollToSection(currentIndex + 1);
+                }
+            } else {
+                // Scrolling up
+                if (currentIndex > 0) {
+                    scrollToSection(currentIndex - 1);
+                } else if (currentIndex === 0) {
+                    // Go back to intro
+                    isScrolling = true;
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000);
+                }
+            }
+        }
+    }, { passive: false });
+
     // Console welcome message
     console.log('%c Welcome to Project Fi! ', 
         'background: #586DCF; color: #E6D1B4; font-size: 20px; padding: 10px; border-radius: 5px;');
