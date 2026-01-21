@@ -36,22 +36,47 @@
     </nav>
 
     <main class="page-content">
-        <section class="page-hero fade-in-up">
+        <!-- Section 1: Navigation des Archétypes -->
+        <section class="archetype-navigation" id="archetypeSection">
+            <button class="nav-arrow prev-archetype" id="prevArchetype" aria-label="Previous Archetype">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="archetype-bg-spacer"></div>
+            <button class="nav-arrow next-archetype" id="nextArchetype" aria-label="Next Archetype">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </section>
+
+        <!-- Section 2: Navigation des Classes -->
+        <section class="class-navigation">
             <div class="container">
-                <h1>Character Classes</h1>
-                <p>Explore the diverse character classes available in Project Fi</p>
+                <div class="class-selector">
+                    <button class="nav-arrow prev-class" id="prevClass" aria-label="Previous Class">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="class-info">
+                        <h2 class="class-name" id="className">Champion</h2>
+                        <p class="class-description" id="classDescription">Maître du combat rapproché et défenseur inébranlable</p>
+                        <div class="class-dots" id="classDots"></div>
+                    </div>
+                    <button class="nav-arrow next-class" id="nextClass" aria-label="Next Class">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
-        <section class="classes-section">
+        <!-- Section 3: Talent Tree -->
+        <section class="talent-section">
             <div class="container">
-                <div class="module-description fade-in-up">
-                    <h2>GitHub Modules Integration</h2>
-                    <p>Browse our comprehensive class modules hosted on GitHub. Each module provides detailed
-                    information about character abilities, progression, and roleplay opportunities.</p>
-                </div>
-
-                <!-- Talent Tree Module -->
                 <div class="iframe-container fade-in-up">
                     <iframe 
                         src="../talent-tree/index.html" 
@@ -59,40 +84,6 @@
                         class="github-iframe"
                         loading="lazy">
                     </iframe>
-                </div>
-
-                <!-- Class Cards -->
-                <div class="classes-grid">
-                    <div class="class-card fade-in-up">
-                        <h3>Warrior</h3>
-                        <p>Masters of combat and physical prowess, warriors excel in melee combat and protecting their allies.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
-                    <div class="class-card fade-in-up">
-                        <h3>Mage</h3>
-                        <p>Wielders of arcane magic, mages command the elements and bend reality to their will.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
-                    <div class="class-card fade-in-up">
-                        <h3>Rogue</h3>
-                        <p>Cunning and stealthy, rogues excel at reconnaissance, subterfuge, and precise strikes.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
-                    <div class="class-card fade-in-up">
-                        <h3>Cleric</h3>
-                        <p>Divine champions who heal the wounded and smite the wicked with holy power.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
-                    <div class="class-card fade-in-up">
-                        <h3>Ranger</h3>
-                        <p>Masters of nature and tracking, rangers are skilled hunters and wilderness survivalists.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
-                    <div class="class-card fade-in-up">
-                        <h3>Bard</h3>
-                        <p>Charismatic performers who inspire allies and confound enemies with music and magic.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -105,5 +96,6 @@
     </footer>
 
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/classes.js"></script>
 </body>
 </html>

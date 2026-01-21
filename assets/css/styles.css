@@ -751,3 +751,194 @@ a:hover {
         padding: 1.5rem;
     }
 }
+
+/* Classes Page - Archetype & Class Navigation */
+.archetype-navigation {
+    position: relative;
+    padding: 0;
+    background: #e6d1b4;
+    height: 1100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.archetype-bg-spacer {
+    width: 100%;
+    height: 100%;
+}
+
+.class-navigation {
+    padding: 3rem 0;
+    background-color: var(--primary-bg);
+}
+
+.class-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.class-info {
+    text-align: center;
+    flex: 1;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.class-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.class-description {
+    font-size: 1.1rem;
+    color: rgba(230, 209, 180, 0.8);
+    margin-bottom: 1rem;
+}
+
+.class-dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(88, 109, 207, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background-color: rgba(88, 109, 207, 0.6);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background-color: var(--tertiary-color);
+    transform: scale(1.3);
+}
+
+.nav-arrow {
+    background: rgba(88, 109, 207, 0.2);
+    border: 2px solid var(--tertiary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--secondary-color);
+}
+
+.nav-arrow:hover {
+    background: var(--tertiary-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(88, 109, 207, 0.5);
+}
+
+.nav-arrow:active {
+    transform: scale(0.95);
+}
+
+.nav-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Positionner les flèches aux extrémités dans la section archétype */
+.archetype-navigation .nav-arrow {
+    position: absolute;
+    top: 7rem;
+    background: rgba(21, 26, 50, 0.1);
+    border-color: rgba(21, 26, 50, 0.4);
+    color: #151A32;
+}
+
+.archetype-navigation .prev-archetype {
+    left: 1rem;
+}
+
+.archetype-navigation .next-archetype {
+    right: 1rem;
+}
+
+.talent-section {
+    padding: 3rem 0;
+    background-color: var(--primary-bg);
+}
+
+/* Responsive Classes Navigation */
+@media (max-width: 768px) {
+    .archetype-selector,
+    .class-selector {
+        gap: 1.5rem;
+    }
+
+    .archetype-name {
+        font-size: 2.5rem;
+    }
+
+    .class-name {
+        font-size: 2rem;
+    }
+
+    .archetype-description,
+    .class-description {
+        font-size: 1rem;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .archetype-selector,
+    .class-selector {
+        gap: 1rem;
+    }
+
+    .archetype-name {
+        font-size: 2rem;
+    }
+
+    .class-name {
+        font-size: 1.5rem;
+    }
+
+    .archetype-description,
+    .class-description {
+        font-size: 0.9rem;
+    }
+
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+    }
+}
