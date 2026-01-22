@@ -2,6 +2,40 @@
 // Vanilla JS for scroll animations and interactivity
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Music Player Control
+    const musicToggle = document.querySelector('#music-toggle');
+    const backgroundMusic = document.querySelector('#background-music');
+    let isPlaying = false;
+
+    if (musicToggle && backgroundMusic) {
+        // Set volume to 15%
+        backgroundMusic.volume = 0.15;
+
+        // Wait for audio to be ready, then unmute and play
+        backgroundMusic.addEventListener('canplay', function() {
+            backgroundMusic.muted = false;
+            backgroundMusic.play().then(() => {
+                isPlaying = true;
+                musicToggle.classList.add('playing');
+            }).catch(error => {
+                console.log('Autoplay not allowed');
+            });
+        }, { once: true });
+
+        musicToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isPlaying) {
+                backgroundMusic.pause();
+                isPlaying = false;
+                musicToggle.classList.remove('playing');
+            } else {
+                backgroundMusic.play();
+                isPlaying = true;
+                musicToggle.classList.add('playing');
+            }
+        });
+    }
+
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
