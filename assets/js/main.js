@@ -229,6 +229,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: false });
     }
 
+    // Navbar hover effect during intro
+    const navbar = document.querySelector('.navbar-main');
+    const heroIntroSection = document.querySelector('.hero-intro');
+    let isInIntro = true;
+
+    if (navbar && heroIntroSection) {
+        // Check if we're in the intro section
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset;
+            const introHeight = heroIntroSection.offsetHeight;
+            
+            if (scrollTop >= introHeight - 100) {
+                isInIntro = false;
+                navbar.classList.add('revealed');
+                navbar.classList.remove('show-on-hover');
+            } else {
+                isInIntro = true;
+                navbar.classList.remove('revealed');
+            }
+        });
+
+        // Show navbar when mouse is at top of screen during intro
+        document.addEventListener('mousemove', function(e) {
+            if (isInIntro) {
+                if (e.clientY < 80) {
+                    navbar.classList.add('show-on-hover');
+                } else {
+                    navbar.classList.remove('show-on-hover');
+                }
+            }
+        });
+    }
+
     // Console welcome message
     console.log('%c Welcome to Project Fi! ', 
         'background: #586DCF; color: #E6D1B4; font-size: 20px; padding: 10px; border-radius: 5px;');

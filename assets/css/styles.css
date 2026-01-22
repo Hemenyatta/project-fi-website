@@ -99,11 +99,16 @@ a:hover {
 
 .navbar-main {
     opacity: 0;
-    transform: translateY(-50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(-100%);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .navbar-main.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-main.show-on-hover {
     opacity: 1;
     transform: translateY(0);
 }
