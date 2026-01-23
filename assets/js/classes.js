@@ -8,15 +8,24 @@ document.addEventListener('DOMContentLoaded', function() {
             classes: [
                 {
                     name: "Champion",
-                    description: "Maître du combat rapproché et défenseur inébranlable"
+                    role: "Défenseur",
+                    description: "Maître du combat rapproché et défenseur inébranlable",
+                    fullDescription: "Le Champion est un gardien inébranlable qui se tient entre ses alliés et le danger. Maîtrisant l'art du combat rapproché et de la défense tactique, il peut encaisser des dégâts massifs tout en protégeant son équipe. Son expertise avec le bouclier et l'armure lourde en fait le pilier de toute formation.",
+                    image: "../images/classes/Sentinelle.png"
                 },
                 {
                     name: "Paladin",
-                    description: "Guerrier sacré combinant foi et force martiale"
+                    role: "Gardien Sacré",
+                    description: "Guerrier sacré combinant foi et force martiale",
+                    fullDescription: "Le Paladin canalise la puissance divine pour protéger les innocents et punir les malfaiteurs. Combinant prouesses martiales et magie sacrée, il peut soigner ses alliés tout en frappant ses ennemis avec une fureur righteous. Sa dévotion lui confère une résilience exceptionnelle face aux ténèbres.",
+                    image: "../images/classes/Sentinelle.png"
                 },
                 {
                     name: "Porteur de Tempête",
-                    description: "Combattant qui canalise la fureur des éléments"
+                    role: "Guerrier Élémentaire",
+                    description: "Combattant qui canalise la fureur des éléments",
+                    fullDescription: "Le Porteur de Tempête maîtrise les forces primordiales de la nature pour dévaster ses ennemis. Capable d'invoquer éclairs, vents violents et glace mordante, il transforme le champ de bataille en un chaos élémentaire. Sa rage channelise les tempêtes elles-mêmes.",
+                    image: "../images/classes/Sentinelle.png"
                 }
             ]
         },
@@ -26,16 +35,25 @@ document.addEventListener('DOMContentLoaded', function() {
             classes: [
                 {
                     name: "Arcanomancien",
-                    description: "Érudit des arts arcaniques et tisseur de sorts"
+                    role: "Mage des Arcanes",
+                    description: "Érudit des arts arcaniques et tisseur de sorts",
+                    fullDescription: "L'Arcanomancien plie la réalité à sa volonté grâce à une maîtrise incomparable de la magie arcanique. Ses sorts dévastateurs peuvent anéantir des groupes entiers d'ennemis, tandis que ses barrières mystiques le protègent des attaques. La connaissance est son arme ultime.",
+                    image: "../images/classes/Sorcier.png"
                 },
                 {
                     name: "Cristalomancien",
+                    role: "Sculpteur de Cristal",
                     description: "Manipulateur des énergies cristallines et de leurs pouvoirs",
-                    talentTree: "class1"
+                    fullDescription: "Le Cristalomancien façonne et manipule les cristaux magiques pour créer des constructions défensives et offensives. Ses créations cristallines peuvent piéger les ennemis, amplifier la magie alliée ou exploser en fragments tranchants. Il transforme le champ de bataille en un jardin de cristal mortel.",
+                    talentTree: "class1",
+                    image: "../images/classes/Sorcier.png"
                 },
                 {
                     name: "Anathème",
-                    description: "Sorcier des ombres qui puise dans les énergies interdites"
+                    role: "Mage Maudit",
+                    description: "Sorcier des ombres qui puise dans les énergies interdites",
+                    fullDescription: "L'Anathème puise dans les ténèbres pour affliger ses ennemis de malédictions débilitantes. Ses hexes affaiblissent, tourmentent et corrompent ceux qui osent s'opposer à lui. Maître de la magie interdite, il paie le prix de son pouvoir avec son essence même.",
+                    image: "../images/classes/Sorcier.png"
                 }
             ]
         },
@@ -45,15 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
             classes: [
                 {
                     name: "Garde forestier",
-                    description: "Protecteur de la nature et tireur d'élite"
+                    role: "Protecteur de la Nature",
+                    description: "Protecteur de la nature et tireur d'élite",
+                    fullDescription: "Le Garde forestier est un maître du pistage et du tir à l'arc, capable de frapper ses cibles avec une précision mortelle depuis les ombres. Protecteur de la nature, il peut se fondre dans l'environnement et communiquer avec les créatures sauvages pour obtenir de l'aide.",
+                    image: "../images/classes/Vagabond.png"
                 },
                 {
                     name: "Voltigeur",
-                    description: "Acrobate agile spécialiste du combat mobile"
+                    role: "Acrobate",
+                    description: "Acrobate agile spécialiste du combat mobile",
+                    fullDescription: "Le Voltigeur combine agilité extraordinaire et techniques de combat mobile pour désorienter ses adversaires. Bondissant à travers le champ de bataille, il frappe avec rapidité avant de disparaître. Sa maîtrise acrobatique lui permet d'éviter les attaques les plus dangereuses.",
+                    image: "../images/classes/Vagabond.png"
                 },
                 {
                     name: "Corsaire",
-                    description: "Aventurier des mers et maître de la ruse"
+                    role: "Aventurier des Mers",
+                    description: "Aventurier des mers et maître de la ruse",
+                    fullDescription: "Le Corsaire est un aventurier rusé qui a survécu aux dangers des mers. Expert en navigation et en combat naval, il utilise la ruse et l'opportunisme pour surmonter ses ennemis. Son charisme naturel et ses tactiques sournoises en font un allié précieux ou un ennemi redoutable.",
+                    image: "../images/classes/Vagabond.png"
                 }
             ]
         },
@@ -63,16 +90,25 @@ document.addEventListener('DOMContentLoaded', function() {
             classes: [
                 {
                     name: "Alchimiste",
-                    description: "Savant des potions et transmutations mystiques"
+                    role: "Savant",
+                    description: "Savant des potions et transmutations mystiques",
+                    fullDescription: "L'Alchimiste transforme la matière elle-même grâce à des connaissances ésotériques et des formules secrètes. Ses potions peuvent guérir, améliorer ou détruire, tandis que ses transmutations manipulent les éléments. La science et la magie se mêlent dans son art.",
+                    image: "../images/classes/Artisan.png"
                 },
                 {
                     name: "Mécanicien",
+                    role: "Inventeur",
                     description: "Inventeur de merveilles technologiques et d'automates",
-                    talentTree: "class2"
+                    fullDescription: "Le Mécanicien crée des merveilles de technologie magique, des automates aux armes sophistiquées. Ses inventions peuvent transformer le cours d'une bataille, offrant soutien tactique ou puissance de feu dévastatrice. L'ingéniosité est son plus grand atout.",
+                    talentTree: "class2",
+                    image: "../images/classes/Artisan.png"
                 },
                 {
                     name: "Forgeron",
-                    description: "Artisan légendaire qui forge armes et armures enchantées"
+                    role: "Artisan Légendaire",
+                    description: "Artisan légendaire qui forge armes et armures enchantées",
+                    fullDescription: "Le Forgeron est un maître artisan capable de créer des armes et armures d'une qualité légendaire. Infusant ses créations de magie runique, il peut forger des objets aux pouvoirs extraordinaires. Chaque pièce qu'il crée est une œuvre d'art mortelle.",
+                    image: "../images/classes/Artisan.png"
                 }
             ]
         },
@@ -82,16 +118,25 @@ document.addEventListener('DOMContentLoaded', function() {
             classes: [
                 {
                     name: "Oracle",
-                    description: "Voyant capable de percevoir le passé et l'avenir"
+                    role: "Voyant",
+                    description: "Voyant capable de percevoir le passé et l'avenir",
+                    fullDescription: "L'Oracle possède le don de percevoir au-delà du voile du temps. Ses visions du passé et de l'avenir guident ses alliés vers la victoire, tandis que ses prophéties peuvent sceller le destin de ses ennemis. Le temps lui-même plie à sa volonté.",
+                    image: "../images/classes/Oracle.png"
                 },
                 {
                     name: "Druide",
+                    role: "Gardien de l'Équilibre",
                     description: "Gardien de l'équilibre naturel et métamorphe",
-                    talentTree: "class3"
+                    fullDescription: "Le Druide maintient l'équilibre entre civilisation et nature sauvage. Capable de prendre des formes animales et de commander aux forces naturelles, il peut soigner ou détruire selon les besoins. La nature elle-même répond à son appel.",
+                    talentTree: "class3",
+                    image: "../images/classes/Druide.png"
                 },
                 {
                     name: "Disciple",
-                    description: "Adepte des arts spirituels et canal d'énergies divines"
+                    role: "Canal Divin",
+                    description: "Adepte des arts spirituels et canal d'énergies divines",
+                    fullDescription: "Le Disciple est un canal des énergies divines, capable de bénir ses alliés et de maudire ses ennemis. Ses prières peuvent inverser le cours d'une bataille, apportant guérison miraculeuse ou châtiment divin. Sa foi est son bouclier et son épée.",
+                    image: "../images/classes/Disciple.png"
                 }
             ]
         }
@@ -104,7 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Éléments DOM
     const archetypeSection = document.getElementById('archetypeSection');
     const className = document.getElementById('className');
-    const classDescription = document.getElementById('classDescription');
+    const classRole = document.getElementById('classRole');
+    const classFullDescription = document.getElementById('classFullDescription');
+    const classImage = document.getElementById('classImage');
     const classDots = document.getElementById('classDots');
     const talentTreeIframe = document.getElementById('talentTreeIframe');
     
@@ -130,8 +177,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const archetype = archetypes[currentArchetypeIndex];
         const currentClass = archetype.classes[currentClassIndex];
         
-        className.textContent = currentClass.name;
-        classDescription.textContent = currentClass.description;
+        // Mettre à jour les textes
+        if (className) className.textContent = currentClass.name;
+        if (classRole) classRole.textContent = currentClass.role || "Classe";
+        if (classFullDescription) classFullDescription.textContent = currentClass.fullDescription || currentClass.description;
+        
+        // Mettre à jour l'image de la classe
+        if (classImage && currentClass.image) {
+            classImage.src = currentClass.image;
+            classImage.alt = currentClass.name;
+        }
         
         // Mettre à jour l'iframe du talent tree si la classe a un arbre défini
         if (talentTreeIframe && currentClass.talentTree) {

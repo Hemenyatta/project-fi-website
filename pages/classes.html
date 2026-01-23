@@ -51,7 +51,42 @@
             </button>
         </section>
 
-        <!-- Section 2: Navigation des Classes -->
+        <!-- Section 2: Class Details & Talent Tree -->
+        <section class="class-details-section">
+            <div class="class-details-container">
+                <!-- Left: Class Image & Info -->
+                <div class="class-display-panel">
+                    <img 
+                        src="../images/classes/Champion.png" 
+                        alt="Class Image" 
+                        class="class-image"
+                        id="classImage"
+                    />
+                    <div class="class-text-overlay">
+                        <h2 class="class-title" id="className">Classe</h2>
+                        <div class="decorative-lines">
+                            <div class="line-long"></div>
+                            <div class="line-short"></div>
+                        </div>
+                        <h3 class="class-role" id="classRole">Rôle</h3>
+                        <p class="class-full-description" id="classFullDescription">Classe description test</p>
+                    </div>
+                </div>
+                
+                <!-- Right: Talent Tree -->
+                <div class="talent-tree-panel">
+                    <iframe 
+                        src="../talent-tree/index.html" 
+                        title="Talent Tree"
+                        class="talent-tree-iframe"
+                        id="talentTreeIframe"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Class Navigation -->
         <section class="class-navigation">
             <div class="container">
                 <div class="class-selector">
@@ -61,8 +96,6 @@
                         </svg>
                     </button>
                     <div class="class-info">
-                        <h2 class="class-name" id="className">Champion</h2>
-                        <p class="class-description" id="classDescription">Maître du combat rapproché et défenseur inébranlable</p>
                         <div class="class-dots" id="classDots"></div>
                     </div>
                     <button class="nav-arrow next-class" id="nextClass" aria-label="Next Class">
@@ -70,21 +103,6 @@
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Talent Tree -->
-        <section class="talent-section">
-            <div class="container">
-                <div class="iframe-container fade-in-up">
-                    <iframe 
-                        src="../talent-tree/index.html" 
-                        title="Talent Tree"
-                        class="github-iframe"
-                        id="talentTreeIframe"
-                        loading="lazy">
-                    </iframe>
                 </div>
             </div>
         </section>

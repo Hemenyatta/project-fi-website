@@ -230,11 +230,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Navbar hover effect during intro
-    const navbar = document.querySelector('.navbar-main');
+    const navbarMain = document.querySelector('.navbar-main');
     const heroIntroSection = document.querySelector('.hero-intro');
     let isInIntro = true;
 
-    if (navbar && heroIntroSection) {
+    if (navbarMain && heroIntroSection) {
         // Check if we're in the intro section
         window.addEventListener('scroll', function() {
             const scrollTop = window.pageYOffset;
@@ -242,11 +242,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (scrollTop >= introHeight - 100) {
                 isInIntro = false;
-                navbar.classList.add('revealed');
-                navbar.classList.remove('show-on-hover');
+                navbarMain.classList.add('revealed');
+                navbarMain.classList.remove('show-on-hover');
             } else {
                 isInIntro = true;
-                navbar.classList.remove('revealed');
+                navbarMain.classList.remove('revealed');
             }
         });
 
@@ -254,9 +254,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('mousemove', function(e) {
             if (isInIntro) {
                 if (e.clientY < 80) {
-                    navbar.classList.add('show-on-hover');
+                    navbarMain.classList.add('show-on-hover');
                 } else {
-                    navbar.classList.remove('show-on-hover');
+                    navbarMain.classList.remove('show-on-hover');
                 }
             }
         });
