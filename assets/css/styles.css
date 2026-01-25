@@ -953,25 +953,7 @@ a:hover {
     min-height: 881px;
     background: #151A32;
     position: relative;
-}
-
-.class-details-container {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    height: 881px;
-    width: 100%;
-    align-items: stretch;
-    background: transparent;
-}
-
-.class-display-panel {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     overflow: hidden;
-    padding-top: 60px;
-    height: 100%;
 }
 
 .class-image {
@@ -984,6 +966,27 @@ a:hover {
     left: 0;
     opacity: 1;
     z-index: 1;
+}
+
+.class-details-container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    height: 881px;
+    width: 100%;
+    align-items: stretch;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.class-display-panel {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: visible;
+    padding-top: 60px;
+    height: 100%;
 }
 
 .class-text-overlay {
