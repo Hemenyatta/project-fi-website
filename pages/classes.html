@@ -35,6 +35,20 @@
         </div>
     </nav>
 
+    <div class="archetype-sticky-bar">
+        <button class="sticky-nav-arrow prev-archetype-sticky" id="prevArchetypeSticky" aria-label="Previous Archetype">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <span class="archetype-name-sticky" id="archetypeNameSticky">Sentinelle</span>
+        <button class="sticky-nav-arrow next-archetype-sticky" id="nextArchetypeSticky" aria-label="Next Archetype">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
+
     <main class="page-content">
         <!-- Section 1: Navigation des Archétypes -->
         <section class="archetype-navigation" id="archetypeSection">
@@ -104,6 +118,57 @@
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Class Cards & Abilities -->
+        <section class="class-cards-section">
+            <div class="cards-container">
+                <!-- Left side: Cartes -->
+                <div class="cards-left">
+                    <h2 class="cards-title">Cartes</h2>
+                    <div class="cards-line"></div>
+                    <div class="spell-characteristic">
+                        <span class="characteristic-label">Caractéristique de lancer de sort :</span>
+                        <span class="characteristic-value" id="spellCharacteristic">Carac</span>
+                    </div>
+                </div>
+
+                <!-- Right side: Abilities -->
+                <div class="cards-right">
+                    <!-- Passif -->
+                    <div class="ability-block">
+                        <h3 class="ability-title ability-title-right">Passif</h3>
+                        <p class="ability-name ability-name-right" id="passiveName">Classe passif test</p>
+                        <p class="ability-description ability-description-right" id="passiveDescription">Classe passif description test</p>
+                    </div>
+
+                    <div class="ability-divider ability-divider-right"></div>
+
+                    <!-- Capacité d'espoir -->
+                    <div class="ability-block">
+                        <h3 class="ability-title">Capacité d'espoir</h3>
+                        <p class="ability-name" id="hopeAbilityName">Classe passif test</p>
+                        <p class="ability-description" id="hopeAbilityDescription">Classe passif description test</p>
+                    </div>
+
+                    <div class="ability-divider ability-divider-left"></div>
+
+                    <!-- Domaines des sorts -->
+                    <div class="ability-block">
+                        <h3 class="ability-title ability-title-right">Domaines des sorts</h3>
+                        <div class="spell-domains">
+                            <div class="domain-item">
+                                <div class="domain-image" id="domainImage1"></div>
+                                <p class="domain-name" id="domainName1">Domaine 1</p>
+                            </div>
+                            <div class="domain-item">
+                                <div class="domain-image" id="domainImage2"></div>
+                                <p class="domain-name" id="domainName2">Domaine 2</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

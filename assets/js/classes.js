@@ -160,11 +160,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevClassBtn = document.getElementById('prevClass');
     const nextClassBtn = document.getElementById('nextClass');
 
+    // Éléments de la barre sticky
+    const archetypeStickyBar = document.querySelector('.archetype-sticky-bar');
+    const archetypeNameSticky = document.getElementById('archetypeNameSticky');
+    const prevArchetypeStickyBtn = document.getElementById('prevArchetypeSticky');
+    const nextArchetypeStickyBtn = document.getElementById('nextArchetypeSticky');
+
     // Fonction pour mettre à jour l'affichage de l'archétype
     function updateArchetypeDisplay() {
         const archetype = archetypes[currentArchetypeIndex];
         if (archetypeSection) {
             archetypeSection.style.backgroundImage = `url(${archetype.image})`;
+        }
+
+        // Mettre à jour la barre sticky
+        if (archetypeNameSticky) {
+            archetypeNameSticky.textContent = archetype.name;
         }
 
         // Réinitialiser à la première classe de l'archétype
@@ -227,6 +238,17 @@ document.addEventListener('DOMContentLoaded', function() {
         updateArchetypeDisplay();
     });
 
+    // Navigation des archétypes via la barre sticky
+    prevArchetypeStickyBtn.addEventListener('click', () => {
+        currentArchetypeIndex = (currentArchetypeIndex - 1 + archetypes.length) % archetypes.length;
+        updateArchetypeDisplay();
+    });
+
+    nextArchetypeStickyBtn.addEventListener('click', () => {
+        currentArchetypeIndex = (currentArchetypeIndex + 1) % archetypes.length;
+        updateArchetypeDisplay();
+    });
+
     // Navigation des classes
     prevClassBtn.addEventListener('click', () => {
         const archetype = archetypes[currentArchetypeIndex];
@@ -238,6 +260,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const archetype = archetypes[currentArchetypeIndex];
         currentClassIndex = (currentClassIndex + 1) % archetype.classes.length;
         updateClassDisplay();
+    });
+
+    // Gestion du scroll pour afficher/cacher la barre sticky
+    window.addEventListener('scroll', () => {
+        const archetypeSection = document.getElementById('archetypeSection');
+        if (archetypeSection && archetypeStickyBar) {
+            const rect = archetypeSection.getBoundingClientRect();
+            // Afficher la barre quand on atteint la moitié de la section 1
+            if (rect.bottom < window.innerHeight / 2) {
+                archetypeStickyBar.classList.add('visible');
+            } else {
+                archetypeStickyBar.classList.remove('visible');
+            }
+        }
     });
 
     // Support des touches clavier

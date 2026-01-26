@@ -97,6 +97,123 @@ a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Archetype Sticky Bar */
+.archetype-sticky-bar {
+    position: fixed;
+    top: 75px;
+    width: 100%;
+    background: #E6D1B4;
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    min-height: 70px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.archetype-sticky-bar.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sticky-nav-arrow {
+    background: var(--tertiary-color);
+    border: 2px solid var(--tertiary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #E6D1B4;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.sticky-nav-arrow:hover {
+    background: var(--tertiary-color);
+    color: #E6D1B4;
+    box-shadow: 0 4px 15px rgba(88, 109, 207, 0.5);
+    transform: scale(1.1);
+}
+
+.sticky-nav-arrow:active {
+    transform: scale(0.95);
+}
+
+.sticky-nav-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+.archetype-name-sticky {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #151A32;
+    text-align: center;
+    letter-spacing: 0.03em;
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive archetype sticky bar */
+@media (max-width: 768px) {
+    .archetype-sticky-bar {
+        gap: 1.5rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .sticky-nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sticky-nav-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .archetype-name-sticky {
+        font-size: 1.4rem;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .archetype-sticky-bar {
+        gap: 1rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .sticky-nav-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .sticky-nav-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .archetype-name-sticky {
+        font-size: 1.2rem;
+        min-width: 120px;
+    }
+}
+
 .navbar-main {
     opacity: 0;
     transform: translateY(-100%);
@@ -947,26 +1064,72 @@ a:hover {
 
 /* Positionner les flèches aux extrémités dans la section archétype */
 .archetype-navigation .nav-arrow {
-    position: absolute;
-    top: 7rem;
-    background: rgba(21, 26, 50, 0.1);
-    border-color: rgba(21, 26, 50, 0.4);
-    color: #151A32;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--tertiary-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(88, 109, 207, 0.5);
+    transition: all 0.3s ease;
+}
+
+.archetype-navigation .nav-arrow:hover {
+    background: var(--secondary-color);
+    color: var(--tertiary-color);
+    box-shadow: 0 6px 20px rgba(88, 109, 207, 0.7);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .archetype-navigation .prev-archetype {
-    left: 1rem;
+    left: 2rem;
 }
 
 .archetype-navigation .next-archetype {
-    right: 1rem;
+    right: 2rem;
 }
 
 /* Responsive positioning for archetype arrows */
+@media (max-width: 1024px) {
+    .archetype-navigation .nav-arrow {
+        width: 55px;
+        height: 55px;
+    }
+}
+
 @media (max-width: 768px) {
     .archetype-navigation .nav-arrow {
-        top: 50%;
-        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        left: auto;
+        right: auto;
+    }
+    
+    .archetype-navigation .prev-archetype {
+        left: 1rem;
+    }
+
+    .archetype-navigation .next-archetype {
+        right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .archetype-navigation .nav-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .archetype-navigation .prev-archetype {
+        left: 0.5rem;
+    }
+
+    .archetype-navigation .next-archetype {
+        right: 0.5rem;
     }
 }
 
@@ -1284,5 +1447,278 @@ a:hover {
     .nav-arrow {
         width: 35px;
         height: 35px;
+    }
+}
+
+/* Class Cards & Abilities Section */
+.class-cards-section {
+    background: #E6D1B4;
+    padding: 3rem 2rem;
+    width: 100%;
+}
+
+.cards-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.cards-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cards-title {
+    font-family: 'Corben', cursive;
+    font-size: 90px;
+    font-weight: 700;
+    color: #151A32;
+    text-align: center;
+    margin: 0;
+}
+
+.cards-line {
+    width: 284px;
+    height: 4px;
+    background: #8C9DEC;
+    margin: 0 auto;
+}
+
+.spell-characteristic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 10rem;
+}
+
+.characteristic-label {
+    font-family: 'Corben', cursive;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8C9DEC;
+    text-align: right;
+}
+
+.characteristic-value {
+    font-family: 'Corben', cursive;
+    font-size: 22px;
+    font-weight: 400;
+    color: #151A32;
+}
+
+.cards-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ability-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ability-title {
+    font-family: 'Corben', cursive;
+    font-size: 40px;
+    font-weight: 700;
+    color: #151A32;
+    margin: 0;
+}
+
+.ability-title-right {
+    text-align: right;
+}
+
+.ability-name {
+    font-family: 'Corben', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: #8C9DEC;
+    margin: 0;
+}
+
+.ability-name-right {
+    text-align: right;
+}
+
+.ability-description {
+    font-family: 'Corben', cursive;
+    font-size: 24px;
+    font-weight: 400;
+    color: #151A32;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.ability-description-right {
+    text-align: right;
+}
+
+.ability-divider {
+    height: 4px;
+    background: #151A32;
+    width: 475px;
+}
+
+.ability-divider-right {
+    margin-left: auto;
+}
+
+.ability-divider-left {
+    margin-right: auto;
+}
+
+.spell-domains {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.domain-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.domain-image {
+    width: 67px;
+    height: 67px;
+    background: #586DCF;
+    border-radius: 8px;
+}
+
+.domain-name {
+    font-family: 'Corben', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    color: #151A32;
+    text-align: center;
+    margin: 0;
+}
+
+/* Responsive pour Class Cards Section */
+@media (max-width: 1200px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .cards-title {
+        font-size: 60px;
+    }
+
+    .spell-characteristic {
+        padding-top: 2rem;
+    }
+
+    .ability-title {
+        font-size: 32px;
+    }
+
+    .ability-name {
+        font-size: 20px;
+    }
+
+    .ability-description {
+        font-size: 20px;
+    }
+
+    .ability-divider {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .ability-title-right,
+    .ability-name-right,
+    .ability-description-right {
+        text-align: left;
+    }
+
+    .ability-divider-right,
+    .ability-divider-left {
+        margin-left: 0;
+    }
+
+    .spell-domains {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .class-cards-section {
+        padding: 2rem 1rem;
+    }
+
+    .cards-title {
+        font-size: 48px;
+    }
+
+    .ability-title {
+        font-size: 28px;
+    }
+
+    .ability-name {
+        font-size: 18px;
+    }
+
+    .ability-description {
+        font-size: 18px;
+    }
+
+    .characteristic-label {
+        font-size: 16px;
+    }
+
+    .characteristic-value {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-title {
+        font-size: 36px;
+    }
+
+    .ability-title {
+        font-size: 24px;
+    }
+
+    .ability-name {
+        font-size: 16px;
+    }
+
+    .ability-description {
+        font-size: 16px;
+    }
+
+    .spell-characteristic {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .characteristic-label {
+        text-align: center;
+    }
+
+    .spell-domains {
+        gap: 1rem;
+    }
+
+    .domain-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .domain-name {
+        font-size: 14px;
     }
 }
