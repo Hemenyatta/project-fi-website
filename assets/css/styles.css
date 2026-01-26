@@ -814,13 +814,14 @@ a:hover {
 .archetype-navigation {
     position: relative;
     padding: 0;
+    margin: 0;
     background: #e6d1b4;
-    height: 1100px;
     width: 100%;
+    aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-position: center top;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -828,6 +829,25 @@ a:hover {
 .archetype-bg-spacer {
     width: 100%;
     height: 100%;
+}
+
+/* Responsive adjustments for archetype section */
+@media (max-width: 1024px) {
+    .archetype-navigation {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 768px) {
+    .archetype-navigation {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 480px) {
+    .archetype-navigation {
+        aspect-ratio: 16 / 9;
+    }
 }
 
 .class-navigation {
@@ -942,6 +962,14 @@ a:hover {
     right: 1rem;
 }
 
+/* Responsive positioning for archetype arrows */
+@media (max-width: 768px) {
+    .archetype-navigation .nav-arrow {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
 .talent-section {
     padding: 3rem 0;
     background-color: var(--primary-bg);
@@ -966,6 +994,18 @@ a:hover {
     left: 0;
     opacity: 1;
     z-index: 1;
+}
+
+/* Responsive image sizing */
+@media (max-width: 768px) {
+    .class-details-section {
+        min-height: auto;
+    }
+    
+    .class-image {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .class-details-container {
@@ -1130,6 +1170,19 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+    .class-details-container {
+        height: auto;
+    }
+    
+    .class-display-panel {
+        height: auto;
+    }
+    
+    .talent-tree-panel {
+        width: 100%;
+        height: 600px;
+    }
+    
     .class-title {
         font-size: 36px;
     }
@@ -1148,6 +1201,33 @@ a:hover {
     
     .line-short {
         width: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .class-details-container {
+        height: auto;
+    }
+    
+    .class-display-panel {
+        height: auto;
+    }
+    
+    .talent-tree-panel {
+        width: 100%;
+        height: 400px;
+    }
+    
+    .class-title {
+        font-size: 28px;
+    }
+    
+    .class-role {
+        font-size: 14px;
+    }
+    
+    .class-full-description {
+        font-size: 14px;
     }
 }
 
