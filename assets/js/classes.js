@@ -293,6 +293,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Initialiser le carousel de cartes
+    const carousel = new CardCarousel('carouselContainer', 'carouselTrack');
+
     // Initialiser l'affichage
     updateArchetypeDisplay();
 });
