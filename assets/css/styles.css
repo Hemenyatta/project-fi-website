@@ -104,14 +104,14 @@ a:hover {
     width: 100%;
     background: #E6D1B4;
     backdrop-filter: blur(10px);
-    padding: 1.5rem 2rem;
+    padding: 0.75rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
     z-index: 1001;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    min-height: 70px;
+    min-height: 55px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -126,8 +126,8 @@ a:hover {
     background: var(--tertiary-color);
     border: 2px solid var(--tertiary-color);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,18 +150,18 @@ a:hover {
 }
 
 .sticky-nav-arrow svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .archetype-name-sticky {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: #151A32;
     text-align: center;
     letter-spacing: 0.03em;
-    min-width: 200px;
+    min-width: 180px;
     margin: 0;
     padding: 0;
     display: flex;
