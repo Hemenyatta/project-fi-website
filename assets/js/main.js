@@ -8,32 +8,105 @@ document.addEventListener('DOMContentLoaded', function() {
     let isPlaying = false;
 
     if (musicToggle && backgroundMusic) {
-        // Set volume to 15%
-        backgroundMusic.volume = 0.15;
+        const DEFAULT_VOLUME = 0.15;
+        backgroundMusic.volume = DEFAULT_VOLUME;
 
-        // Wait for audio to be ready, then unmute and play
-        backgroundMusic.addEventListener('canplay', function() {
+        const updateMusicToggleUI = () => {
+            const isAudible = isPlaying && !backgroundMusic.muted;
+            musicToggle.classList.toggle('playing', isAudible);
+
+            if (!isPlaying) {
+                musicToggle.title = 'Lecture de la musique';
+            } else if (backgroundMusic.muted) {
+                musicToggle.title = 'Activer la musique';
+            } else {
+                musicToggle.title = 'Couper la musique';
+            }
+        };
+
+        const tryPlayMuted = () => {
+            backgroundMusic.muted = true;
+
+            const playPromise = backgroundMusic.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+                return playPromise
+                    .then(() => {
+                        isPlaying = true;
+                        updateMusicToggleUI();
+                    })
+                    .catch(() => {
+                        // Some environments still block autoplay; wait for user interaction.
+                        isPlaying = false;
+                        updateMusicToggleUI();
+                    });
+            }
+
+            // Older browsers: assume it started.
+            isPlaying = true;
+            updateMusicToggleUI();
+            return Promise.resolve();
+        };
+
+        const tryUnmuteAndPlay = () => {
             backgroundMusic.muted = false;
-            backgroundMusic.play().then(() => {
-                isPlaying = true;
-                musicToggle.classList.add('playing');
-            }).catch(error => {
-                console.log('Autoplay not allowed');
+            const playPromise = backgroundMusic.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(() => {
+                    // If unmute-without-gesture is blocked, fall back to muted playback.
+                    backgroundMusic.muted = true;
+                    updateMusicToggleUI();
+                });
+            }
+            isPlaying = true;
+            updateMusicToggleUI();
+        };
+
+        const initAutoplay = () => {
+            // Hosted browsers often block autoplay with sound, but allow muted autoplay.
+            tryPlayMuted();
+
+            // On first user interaction anywhere, try to unmute.
+            const unlockOnFirstGesture = () => {
+                if (!isPlaying) {
+                    tryPlayMuted().then(() => tryUnmuteAndPlay());
+                    return;
+                }
+                if (backgroundMusic.muted) {
+                    tryUnmuteAndPlay();
+                }
+            };
+
+            ['pointerdown', 'touchstart', 'keydown'].forEach(evt => {
+                document.addEventListener(evt, unlockOnFirstGesture, { once: true, passive: true });
             });
-        }, { once: true });
+        };
+
+        if (backgroundMusic.readyState >= 2) {
+            initAutoplay();
+        } else {
+            backgroundMusic.addEventListener('canplay', initAutoplay, { once: true });
+        }
 
         musicToggle.addEventListener('click', function(e) {
             e.preventDefault();
+
+            // If it is playing but muted, the first click should unmute (not pause).
+            if (isPlaying && backgroundMusic.muted) {
+                tryUnmuteAndPlay();
+                return;
+            }
+
             if (isPlaying) {
                 backgroundMusic.pause();
                 isPlaying = false;
-                musicToggle.classList.remove('playing');
+                updateMusicToggleUI();
             } else {
-                backgroundMusic.play();
-                isPlaying = true;
-                musicToggle.classList.add('playing');
+                // User gesture: we can try audible playback directly.
+                tryUnmuteAndPlay();
             }
         });
+
+        updateMusicToggleUI();
     }
 
     // Mobile Navigation Toggle
