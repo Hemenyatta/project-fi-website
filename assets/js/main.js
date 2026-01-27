@@ -11,9 +11,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const DEFAULT_VOLUME = 0.15;
         backgroundMusic.volume = DEFAULT_VOLUME;
 
+        const MUSIC_PREF_KEY = 'projectfi_music_enabled';
+        const getUserMusicEnabledPreference = () => {
+            try {
+                return localStorage.getItem(MUSIC_PREF_KEY) === 'true';
+            } catch {
+                return false;
+            }
+        };
+
+        const setUserMusicEnabledPreference = (enabled) => {
+            try {
+                localStorage.setItem(MUSIC_PREF_KEY, enabled ? 'true' : 'false');
+            } catch {
+                // ignore
+            }
+        };
+
         const updateMusicToggleUI = () => {
-            const isAudible = isPlaying && !backgroundMusic.muted;
-            musicToggle.classList.toggle('playing', isAudible);
+            musicToggle.classList.toggle('playing', isPlaying);
+            musicToggle.classList.toggle('muted', isPlaying && backgroundMusic.muted);
 
             if (!isPlaying) {
                 musicToggle.title = 'Lecture de la musique';
@@ -54,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 playPromise.catch(() => {
                     // If unmute-without-gesture is blocked, fall back to muted playback.
                     backgroundMusic.muted = true;
+                    isPlaying = false;
                     updateMusicToggleUI();
                 });
             }
@@ -65,20 +83,52 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hosted browsers often block autoplay with sound, but allow muted autoplay.
             tryPlayMuted();
 
+            // If the user already opted-in earlier, try audible autoplay too.
+            // This will still be blocked on some browsers, but it works on others once engaged.
+            if (getUserMusicEnabledPreference()) {
+                tryUnmuteAndPlay();
+            }
+
             // On first user interaction anywhere, try to unmute.
             const unlockOnFirstGesture = () => {
-                if (!isPlaying) {
-                    tryPlayMuted().then(() => tryUnmuteAndPlay());
-                    return;
+                // Important: do NOT chain promises here; keep play() inside the gesture call stack.
+                backgroundMusic.muted = false;
+                const p = backgroundMusic.play();
+
+                if (p && typeof p.catch === 'function') {
+                    p.catch(() => {
+                        // If audible playback is blocked, attempt muted playback instead.
+                        backgroundMusic.muted = true;
+                        const p2 = backgroundMusic.play();
+                        if (p2 && typeof p2.catch === 'function') {
+                            p2.catch(() => {
+                                isPlaying = false;
+                                updateMusicToggleUI();
+                            });
+                        }
+                    });
                 }
-                if (backgroundMusic.muted) {
-                    tryUnmuteAndPlay();
-                }
+
+                isPlaying = true;
+                updateMusicToggleUI();
             };
 
-            ['pointerdown', 'touchstart', 'keydown'].forEach(evt => {
-                document.addEventListener(evt, unlockOnFirstGesture, { once: true, passive: true });
-            });
+            // Browsers treat some actions as a "user gesture" (needed to start audio with sound).
+            // Scrolling is typically represented by wheel/touch events rather than a plain "scroll" event.
+            const addUnlockListener = (eventName, options) => {
+                document.addEventListener(eventName, unlockOnFirstGesture, options);
+            };
+
+            // Click/tap/drag
+            addUnlockListener('pointerdown', { once: true, capture: true });
+
+            // Scroll gestures
+            addUnlockListener('wheel', { once: true, capture: true, passive: true });
+            addUnlockListener('touchstart', { once: true, capture: true, passive: true });
+            addUnlockListener('touchmove', { once: true, capture: true, passive: true });
+
+            // Keyboard (space/arrow keys often scroll)
+            addUnlockListener('keydown', { once: true, capture: true });
         };
 
         if (backgroundMusic.readyState >= 2) {
@@ -93,16 +143,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // If it is playing but muted, the first click should unmute (not pause).
             if (isPlaying && backgroundMusic.muted) {
                 tryUnmuteAndPlay();
+                setUserMusicEnabledPreference(true);
                 return;
             }
 
             if (isPlaying) {
                 backgroundMusic.pause();
                 isPlaying = false;
+                setUserMusicEnabledPreference(false);
                 updateMusicToggleUI();
             } else {
                 // User gesture: we can try audible playback directly.
                 tryUnmuteAndPlay();
+                setUserMusicEnabledPreference(true);
             }
         });
 
