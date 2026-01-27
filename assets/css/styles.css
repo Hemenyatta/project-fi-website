@@ -1158,14 +1158,36 @@ a:hover {
 }
 
 /* Responsive image sizing */
+@media (max-width: 1024px) {
+    .class-details-section {
+        min-height: 700px;
+    }
+    
+    .class-image {
+        height: 700px;
+    }
+}
+
 @media (max-width: 768px) {
     .class-details-section {
-        min-height: auto;
+        min-height: 500px;
     }
     
     .class-image {
         width: 100%;
-        height: auto;
+        height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .class-details-section {
+        min-height: auto;
+        padding-bottom: 2rem;
+    }
+    
+    .class-image {
+        width: 100%;
+        height: 300px;
     }
 }
 
@@ -1298,11 +1320,11 @@ a:hover {
     
     .talent-tree-panel {
         width: 100%;
-        height: 600px;
+        height: 500px;
     }
     
     .class-display-panel {
-        height: 600px;
+        height: 500px;
     }
     
     .class-image {
@@ -1314,7 +1336,7 @@ a:hover {
     }
     
     .class-text-overlay {
-        padding: 3rem 2rem;
+        padding: 2rem 1.5rem;
     }
     
     .class-title {
@@ -1333,15 +1355,22 @@ a:hover {
 @media (max-width: 768px) {
     .class-details-container {
         height: auto;
+        grid-template-columns: 1fr;
     }
     
     .class-display-panel {
-        height: auto;
+        height: 350px;
+        padding-top: 2rem;
     }
     
     .talent-tree-panel {
         width: 100%;
-        height: 600px;
+        height: 400px;
+        padding-right: 0;
+    }
+    
+    .class-text-overlay {
+        padding: 1.5rem 1rem;
     }
     
     .class-title {
@@ -1354,18 +1383,66 @@ a:hover {
     
     .class-full-description {
         font-size: 16px;
+        line-height: 1.4;
     }
     
     .line-long {
-        width: 150px;
+        width: 120px;
     }
     
     .line-short {
-        width: 30px;
+        width: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .class-details-container {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+    
+    .class-display-panel {
+        height: auto;
+        padding-top: 1rem;
+    }
+    
+    .talent-tree-panel {
+        width: 100%;
+        height: 350px;
+        padding-right: 0;
+    }
+    
+    .class-text-overlay {
+        padding: 1rem 0.75rem;
+    }
+    
+    .class-title {
+        font-size: 28px;
+    }
+    
+    .class-role {
+        font-size: 13px;
+    }
+    
+    .class-full-description {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+    
+    .line-long {
+        width: 100px;
+    }
+    
+    .line-short {
+        width: 20px;
     }
 }
 
 @media (max-width: 480px) {
+    .class-details-section {
+        min-height: auto;
+    }
+    
     .class-details-container {
         height: auto;
     }
@@ -1376,19 +1453,19 @@ a:hover {
     
     .talent-tree-panel {
         width: 100%;
-        height: 400px;
+        height: 300px;
     }
     
     .class-title {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .class-role {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     .class-full-description {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
@@ -1763,83 +1840,220 @@ a:hover {
     }
 }
 
+@media (max-width: 1024px) {
+    .cards-title {
+        font-size: 52px;
+    }
+
+    .carousel-wrapper {
+        height: 380px;
+    }
+
+    .card {
+        width: 165px;
+        height: 248px;
+    }
+
+    .card.active {
+        width: 210px;
+        height: 315px;
+    }
+
+    .card.side {
+        width: 150px;
+        height: 225px;
+    }
+
+    .ability-divider {
+        max-width: 350px;
+    }
+}
+
 @media (max-width: 768px) {
     .class-cards-section {
         padding: 2rem 1rem;
     }
 
+    .cards-container {
+        gap: 2.5rem;
+    }
+
     .cards-title {
-        font-size: 48px;
+        font-size: 44px;
     }
 
     .carousel-wrapper {
-        height: 350px;
+        height: 320px;
+        margin: 1.5rem 0;
     }
 
     .card {
+        width: 135px;
+        height: 202px;
+    }
+
+    .card.active {
+        width: 170px;
+        height: 255px;
+    }
+
+    .card.side {
+        width: 115px;
+        height: 172px;
+    }
+
+    .card.far {
         width: 150px;
         height: 225px;
     }
 
-    .card.active {
-        width: 190px;
-        height: 285px;
-    }
-
-    .card.side {
-        width: 130px;
-        height: 195px;
-    }
-
     .ability-title {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .ability-name {
-        font-size: 18px;
-    }
-
-    .ability-description {
-        font-size: 18px;
-    }
-
-    .characteristic-label {
         font-size: 16px;
     }
 
+    .ability-description {
+        font-size: 16px;
+    }
+
+    .characteristic-label {
+        font-size: 14px;
+    }
+
     .characteristic-value {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .ability-divider {
+        max-width: 300px;
+    }
+
+    .domain-image {
+        width: 60px;
+        height: 60px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    .class-cards-section {
+        padding: 1.5rem 0.75rem;
+    }
+
     .cards-title {
         font-size: 36px;
     }
 
+    .carousel-wrapper {
+        height: 280px;
+    }
+
+    .card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .card.active {
+        width: 150px;
+        height: 225px;
+    }
+
+    .card.side {
+        width: 100px;
+        height: 150px;
+    }
+
     .ability-title {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .ability-name {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .ability-description {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .spell-characteristic {
         flex-direction: column;
         gap: 0.5rem;
+        margin-top: 1rem;
     }
 
     .characteristic-label {
         text-align: center;
+        font-size: 13px;
+    }
+
+    .characteristic-value {
+        font-size: 16px;
     }
 
     .spell-domains {
         gap: 1rem;
+        justify-content: center;
+    }
+
+    .domain-image {
+        width: 55px;
+        height: 55px;
+    }
+
+    .domain-name {
+        font-size: 12px;
+    }
+
+    .ability-divider {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-title {
+        font-size: 32px;
+    }
+
+    .carousel-wrapper {
+        height: 250px;
+    }
+
+    .card {
+        width: 110px;
+        height: 165px;
+    }
+
+    .card.active {
+        width: 135px;
+        height: 202px;
+    }
+
+    .card.side {
+        width: 90px;
+        height: 135px;
+    }
+
+    .ability-title {
+        font-size: 20px;
+    }
+
+    .ability-name {
+        font-size: 13px;
+    }
+
+    .ability-description {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+
+    .characteristic-label {
+        font-size: 12px;
+    }
+
+    .characteristic-value {
+        font-size: 14px;
     }
 
     .domain-image {
@@ -1848,6 +2062,14 @@ a:hover {
     }
 
     .domain-name {
-        font-size: 14px;
+        font-size: 11px;
+    }
+
+    .ability-divider {
+        max-width: 200px;
+    }
+
+    .cards-container {
+        gap: 1.5rem;
     }
 }
