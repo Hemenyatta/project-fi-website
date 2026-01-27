@@ -1209,7 +1209,7 @@ a:hover {
     justify-content: flex-start;
     overflow: visible;
     padding-top: 60px;
-    padding-left: 5%;
+    padding-left: 8%;
     height: 100%;
 }
 
@@ -1295,7 +1295,7 @@ a:hover {
     }
     
     .class-display-panel {
-        padding-left: 8%;
+        padding-left: 10%;
     }
     
     .talent-tree-panel {
@@ -1331,7 +1331,7 @@ a:hover {
         min-height: 400px;
         padding-top: 3rem;
         padding-bottom: 3rem;
-        padding-left: 3rem;
+        padding-left: 4rem;
         padding-right: 3rem;
     }
     
@@ -1383,7 +1383,7 @@ a:hover {
         min-height: 300px;
         padding-top: 2rem;
         padding-bottom: 2rem;
-        padding-left: 2rem;
+        padding-left: 2.5rem;
         padding-right: 2rem;
     }
     
@@ -1433,7 +1433,7 @@ a:hover {
     
     .class-display-panel {
         min-height: 250px;
-        padding: 1.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 2rem;
     }
     
     .talent-tree-panel {
