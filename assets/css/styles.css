@@ -14,13 +14,27 @@
 }
 
 html {
-    scroll-snap-type: y scroll;
+    scroll-snap-type: y proximity;
     scroll-padding-top: 0;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    scroll-snap-type: y proximity;
 }
 
 main {
-    /* scroll-snap container now handled by html */
+    scroll-snap-type: inherit;
 }
+
+/* Amélioration du scroll avec will-change pour de meilleures performances */
+section {
+    will-change: scroll-position;
+    -webkit-overflow-scrolling: touch;
+}
+
 :root {
     --primary-bg: #151A32;
     --secondary-color: #E6D1B4;
@@ -57,16 +71,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.2;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
 }
 
 a {
@@ -82,14 +96,14 @@ a:hover {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 2.5vw, 2rem);
 }
 
 /* Navigation Bar */
 .navbar {
     background-color: rgba(21, 26, 50, 0.9);
     backdrop-filter: blur(10px);
-    padding: 1rem 0;
+    padding: clamp(0.75rem, 1.2vw, 1rem) 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -190,14 +204,14 @@ a:hover {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 2.5vw, 2rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .nav-logo {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
     font-weight: 400;
     color: var(--secondary-color);
     font-family: var(--font-heading);
@@ -207,15 +221,15 @@ a:hover {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 .nav-link {
     color: #E6D1B4;
-    font-size: 18px;
+    font-size: clamp(16px, 1.5vw, 18px);
     font-family: var(--font-primary);
     font-weight: 400;
-    padding: 0.5rem 1rem;
+    padding: clamp(0.4rem, 0.6vw, 0.5rem) clamp(0.75rem, 1.2vw, 1rem);
     border-radius: 5px;
     transition: all var(--transition-speed);
 }
@@ -230,10 +244,10 @@ a:hover {
     background: none;
     border: 2px solid var(--secondary-color);
     color: var(--secondary-color);
-    padding: 0.5rem 1rem;
+    padding: clamp(0.4rem, 0.6vw, 0.5rem) clamp(0.75rem, 1.2vw, 1rem);
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     transition: all var(--transition-speed);
     display: flex;
     align-items: center;
@@ -277,12 +291,13 @@ a:hover {
 /* Hero Intro Section - Écran 1: Character Reveal */
 .hero-intro {
     position: relative;
-    height: 200vh;
+    height: clamp(100vh, 150vh, 180vh);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    scroll-snap-align: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
 }
 
 .intro-bg-gradient {
@@ -312,7 +327,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
     pointer-events: none;
     transition: opacity 0.8s ease-out;
 }
@@ -324,7 +339,7 @@ a:hover {
 .intro-phrase {
     font-family: 'Corben', cursive;
     font-weight: 400;
-    font-size: 72px;
+    font-size: clamp(32px, 6vw, 72px);
     text-align: center;
     color: #FFFFFF;
     max-width: 90%;
@@ -353,7 +368,7 @@ a:hover {
     opacity: 0;
     transition: opacity 1s ease-out;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
 }
 
 .parallax-illustration.visible {
@@ -407,61 +422,51 @@ a:hover {
     transform: translateY(5%);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .intro-phrase {
-        font-size: 48px;
-    }
-}
-
-@media (max-width: 480px) {
-    .intro-phrase {
-        font-size: 36px;
-    }
-}
+/* Responsive adjustments - handled by clamp() */
 
 /* Introduction Section */
 .intro-section {
-    padding: 6rem 0;
+    padding: clamp(3rem, 5vh, 4rem) 0;
     background-color: var(--primary-bg);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
     position: relative;
 }
 
 .intro-content {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
 .intro-content h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1.5rem;
 }
 
 .intro-content p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     max-width: 800px;
     margin: 0 auto;
     color: rgba(230, 209, 180, 0.9);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 /* Features Grid */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .feature-card {
     background: linear-gradient(135deg, rgba(88, 109, 207, 0.1) 0%, rgba(88, 109, 207, 0.05) 100%);
-    padding: 2.5rem;
-    border-radius: 15px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: clamp(10px, 1.5vw, 15px);
     border: 2px solid rgba(88, 109, 207, 0.3);
     text-align: center;
     transition: all var(--transition-speed);
@@ -474,22 +479,24 @@ a:hover {
 }
 
 .feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 
 .feature-card h3 {
     color: var(--tertiary-color);
     margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
 }
 
 .feature-card p {
     color: rgba(230, 209, 180, 0.8);
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 /* CTA Section */
 .cta-section {
-    padding: 5rem 0;
+    padding: clamp(3rem, 5vh, 4rem) 0;
     text-align: center;
     background: linear-gradient(135deg, rgba(88, 109, 207, 0.15) 0%, transparent 100%);
     min-height: 100vh;
@@ -497,34 +504,37 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
 }
 
 .cta-section h2 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
     margin-bottom: 1rem;
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .cta-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
     color: rgba(230, 209, 180, 0.9);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: clamp(0.8rem, 1.2vw, 1rem) clamp(1.5rem, 2.5vw, 2rem);
     border-radius: 50px;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
     font-weight: 700;
     transition: all var(--transition-speed);
     border: none;
@@ -566,63 +576,68 @@ a:hover {
 }
 
 .page-hero {
-    padding: 4rem 0;
+    padding: clamp(2rem, 5vw, 4rem) 0;
     text-align: center;
     background: linear-gradient(135deg, rgba(88, 109, 207, 0.2) 0%, transparent 100%);
 }
 
 .page-hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .page-hero p {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
     color: var(--tertiary-color);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 /* Classes Page */
 .classes-section {
-    padding: 4rem 0;
+    padding: clamp(2rem, 5vw, 4rem) 0;
 }
 
 .module-description {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .module-description p {
     max-width: 800px;
     margin: 0 auto;
     color: rgba(230, 209, 180, 0.9);
+    font-size: clamp(0.95rem, 1.2vw, 1rem);
 }
 
 .iframe-container {
-    margin: 3rem 0;
+    margin: clamp(2rem, 4vw, 3rem) 0;
     background: rgba(88, 109, 207, 0.1);
-    border-radius: 15px;
-    padding: 2rem;
+    border-radius: clamp(10px, 1.5vw, 15px);
+    padding: clamp(1.5rem, 2.5vw, 2rem);
     border: 2px solid rgba(88, 109, 207, 0.3);
 }
 
 .github-iframe {
     width: 100%;
-    height: 600px;
+    height: clamp(400px, 50vh, 600px);
     border: none;
     border-radius: 10px;
 }
 
 .classes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(1.5rem, 2.5vw, 2rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .class-card {
     background: linear-gradient(135deg, rgba(88, 109, 207, 0.1) 0%, rgba(88, 109, 207, 0.05) 100%);
-    padding: 2rem;
-    border-radius: 15px;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    border-radius: clamp(10px, 1.5vw, 15px);
     border: 2px solid rgba(88, 109, 207, 0.3);
     transition: all var(--transition-speed);
 }
@@ -636,39 +651,44 @@ a:hover {
 .class-card h3 {
     color: var(--tertiary-color);
     margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
 }
 
 .class-card p {
     color: rgba(230, 209, 180, 0.8);
     margin-bottom: 1.5rem;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
 }
 
 /* Rules Page */
 .rules-section {
-    padding: 4rem 0;
+    padding: clamp(2rem, 5vw, 4rem) 0;
 }
 
 .rules-content {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .rule-block {
     background: linear-gradient(135deg, rgba(88, 109, 207, 0.1) 0%, rgba(88, 109, 207, 0.05) 100%);
-    padding: 2.5rem;
-    border-radius: 15px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: clamp(10px, 1.5vw, 15px);
     border-left: 4px solid var(--tertiary-color);
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .rule-block h2 {
     color: var(--tertiary-color);
     margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .rule-block p {
     margin-bottom: 1rem;
     color: rgba(230, 209, 180, 0.9);
+    font-size: clamp(0.95rem, 1.2vw, 1rem);
 }
 
 .rule-block ul,
@@ -687,25 +707,26 @@ a:hover {
 
 /* Equipment Page */
 .equipment-section {
-    padding: 4rem 0;
+    padding: clamp(2rem, 5vw, 4rem) 0;
 }
 
 .equipment-filters {
     display: flex;
-    gap: 1rem;
+    gap: clamp(0.5rem, 1vw, 1rem);
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .filter-btn {
-    padding: 0.8rem 1.5rem;
+    padding: clamp(0.6rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
     background-color: transparent;
     color: var(--secondary-color);
     border: 2px solid var(--tertiary-color);
     border-radius: 50px;
     font-family: 'Corben', cursive;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
     cursor: pointer;
     transition: all var(--transition-speed);
 }
@@ -718,14 +739,15 @@ a:hover {
 
 .equipment-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: clamp(1.5rem, 2.5vw, 2rem);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 .equipment-card {
     background: linear-gradient(135deg, rgba(88, 109, 207, 0.1) 0%, rgba(88, 109, 207, 0.05) 100%);
-    padding: 2rem;
-    border-radius: 15px;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    border-radius: clamp(10px, 1.5vw, 15px);
     border: 2px solid rgba(88, 109, 207, 0.3);
     transition: all var(--transition-speed);
 }
@@ -739,11 +761,12 @@ a:hover {
 .equipment-card h3 {
     color: var(--tertiary-color);
     margin-bottom: 0.5rem;
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
 }
 
 .equipment-type {
     color: var(--secondary-color);
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1vw, 0.9rem);
     margin-bottom: 1rem;
     opacity: 0.8;
 }
@@ -751,40 +774,43 @@ a:hover {
 .equipment-card p {
     color: rgba(230, 209, 180, 0.8);
     margin-bottom: 1rem;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
 }
 
 .equipment-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: clamp(0.5rem, 1vw, 1rem);
     margin-top: 1rem;
 }
 
 .stat {
     background: rgba(88, 109, 207, 0.2);
-    padding: 0.5rem 1rem;
+    padding: clamp(0.4rem, 0.6vw, 0.5rem) clamp(0.8rem, 1.2vw, 1rem);
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1vw, 0.9rem);
 }
 
 .loading {
     text-align: center;
-    padding: 3rem;
-    font-size: 1.2rem;
+    padding: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     color: var(--tertiary-color);
 }
 
 /* Footer */
 .footer {
     background-color: rgba(21, 26, 50, 0.95);
-    padding: 2rem 0;
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: clamp(2rem, 5vw, 4rem);
     border-top: 2px solid rgba(88, 109, 207, 0.3);
 }
 
 .footer p {
     color: rgba(230, 209, 180, 0.7);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    padding: 0 clamp(1rem, 2vw, 0);
 }
 
 /* Scroll Animations */
@@ -799,6 +825,25 @@ a:hover {
     transform: translateY(0);
 }
 
+/* Optimisation pour écrans larges (1080p et plus) */
+@media screen and (min-width: 1920px) and (min-height: 900px) {
+    .hero-intro {
+        height: 130vh;
+    }
+    
+    .intro-section,
+    .cta-section {
+        padding: clamp(4rem, 6vh, 5rem) 0;
+    }
+}
+
+/* Optimisation pour écrans moyens-larges (type 1080p) */
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+    .hero-intro {
+        height: 140vh;
+    }
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hamburger {
@@ -808,7 +853,7 @@ a:hover {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: clamp(60px, 10vh, 70px);
         flex-direction: column;
         background-color: rgba(21, 26, 50, 0.98);
         width: 100%;
@@ -834,19 +879,6 @@ a:hover {
         transform: translateY(-9px) rotate(-45deg);
     }
 
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .features-grid,
     .classes-grid {
         grid-template-columns: 1fr;
     }
@@ -860,29 +892,16 @@ a:hover {
         width: 100%;
         max-width: 300px;
     }
+}
 
-    .github-iframe {
-        height: 400px;
+/* Media query mobile pour features-grid */
+@media screen and (max-width: 640px) {
+    .features-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .page-hero h1 {
-        font-size: 2rem;
-    }
-
-    .rule-block {
-        padding: 1.5rem;
-    }
-}
+/* Media query 480px - handled by clamp() */
 
 /* Classes Page - Archetype & Class Navigation */
 .archetype-navigation {
