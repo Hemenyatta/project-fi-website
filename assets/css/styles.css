@@ -100,18 +100,18 @@ a:hover {
 /* Archetype Sticky Bar */
 .archetype-sticky-bar {
     position: fixed;
-    top: 75px;
+    top: clamp(60px, 10vh, 75px);
     width: 100%;
     background: #E6D1B4;
     backdrop-filter: blur(10px);
-    padding: 0.75rem 2rem;
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 2rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
     z-index: 1001;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    min-height: 55px;
+    min-height: clamp(45px, 7vh, 55px);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -126,8 +126,8 @@ a:hover {
     background: var(--tertiary-color);
     border: 2px solid var(--tertiary-color);
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: clamp(36px, 5vw, 42px);
+    height: clamp(36px, 5vw, 42px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,12 +156,12 @@ a:hover {
 
 .archetype-name-sticky {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     font-weight: 400;
     color: #151A32;
     text-align: center;
     letter-spacing: 0.03em;
-    min-width: 180px;
+    min-width: clamp(100px, 15vw, 180px);
     margin: 0;
     padding: 0;
     display: flex;
@@ -169,50 +169,7 @@ a:hover {
     justify-content: center;
 }
 
-/* Responsive archetype sticky bar */
-@media (max-width: 768px) {
-    .archetype-sticky-bar {
-        gap: 1.5rem;
-        padding: 0.8rem 1rem;
-    }
-
-    .sticky-nav-arrow {
-        width: 40px;
-        height: 40px;
-    }
-
-    .sticky-nav-arrow svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .archetype-name-sticky {
-        font-size: 1.4rem;
-        min-width: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    .archetype-sticky-bar {
-        gap: 1rem;
-        padding: 0.6rem 0.8rem;
-    }
-
-    .sticky-nav-arrow {
-        width: 36px;
-        height: 36px;
-    }
-
-    .sticky-nav-arrow svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .archetype-name-sticky {
-        font-size: 1.2rem;
-        min-width: 120px;
-    }
-}
+/* Responsive archetype sticky bar - handled by clamp() */
 
 .navbar-main {
     opacity: 0;
@@ -960,21 +917,15 @@ a:hover {
 }
 
 /* Responsive adjustments for archetype section */
-@media (max-width: 1024px) {
-    .archetype-navigation {
-        aspect-ratio: 16 / 9;
-    }
-}
-
 @media (max-width: 768px) {
     .archetype-navigation {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 3;
     }
 }
 
 @media (max-width: 480px) {
     .archetype-navigation {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 1 / 1;
     }
 }
 
@@ -990,7 +941,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -1006,7 +957,7 @@ a:hover {
 }
 
 .class-name {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 700;
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
@@ -1014,21 +965,21 @@ a:hover {
 }
 
 .class-description {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     color: rgba(230, 209, 180, 0.8);
     margin-bottom: 1rem;
 }
 
 .class-dots {
     display: flex;
-    gap: 0.5rem;
+    gap: clamp(0.3rem, 0.5vw, 0.5rem);
     justify-content: center;
     margin-top: 1rem;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: clamp(10px, 1.2vw, 12px);
+    height: clamp(10px, 1.2vw, 12px);
     border-radius: 50%;
     background-color: rgba(88, 109, 207, 0.3);
     cursor: pointer;
@@ -1049,8 +1000,8 @@ a:hover {
     background: rgba(88, 109, 207, 0.2);
     border: 2px solid var(--tertiary-color);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: clamp(35px, 5vw, 50px);
+    height: clamp(35px, 5vw, 50px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1082,8 +1033,8 @@ a:hover {
     background: var(--tertiary-color);
     border: 2px solid var(--secondary-color);
     color: var(--secondary-color);
-    width: 50px;
-    height: 50px;
+    width: clamp(40px, 6vw, 50px);
+    height: clamp(40px, 6vw, 50px);
     z-index: 10;
     box-shadow: 0 4px 15px rgba(88, 109, 207, 0.35);
     transition: all 0.3s ease;
@@ -1097,51 +1048,14 @@ a:hover {
 }
 
 .archetype-navigation .prev-archetype {
-    left: 1rem;
+    left: clamp(0.5rem, 1.5vw, 1rem);
 }
 
 .archetype-navigation .next-archetype {
-    right: 1rem;
+    right: clamp(0.5rem, 1.5vw, 1rem);
 }
 
-/* Responsive positioning for archetype arrows */
-@media (max-width: 1024px) {
-    .archetype-navigation .nav-arrow {
-        width: 48px;
-        height: 48px;
-    }
-}
-
-@media (max-width: 768px) {
-    .archetype-navigation .nav-arrow {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .archetype-navigation .prev-archetype {
-        left: 1rem;
-    }
-
-    .archetype-navigation .next-archetype {
-        right: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .archetype-navigation .nav-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
-    
-    .archetype-navigation .prev-archetype {
-        left: 0.5rem;
-    }
-
-    .archetype-navigation .next-archetype {
-        right: 0.5rem;
-    }
-}
+/* Responsive positioning for archetype arrows - handled by clamp() */
 
 .talent-section {
     padding: 3rem 0;
@@ -1151,7 +1065,7 @@ a:hover {
 /* Class Details Section - Figma Layout */
 .class-details-section {
     width: 100%;
-    min-height: 881px;
+    min-height: clamp(500px, 70vh, 881px);
     background: #151A32;
     position: relative;
     overflow: hidden;
@@ -1159,7 +1073,7 @@ a:hover {
 
 .class-image {
     width: auto;
-    height: 881px;
+    height: clamp(500px, 70vh, 881px);
     object-fit: cover;
     object-position: left center;
     position: absolute;
@@ -1170,43 +1084,17 @@ a:hover {
 }
 
 /* Responsive image sizing */
-@media (max-width: 1024px) {
-    .class-details-section {
-        min-height: 700px;
-    }
-    
-    .class-image {
-        height: 700px;
-    }
-}
-
 @media (max-width: 768px) {
-    .class-details-section {
-        min-height: 500px;
-    }
-    
     .class-image {
         width: 100%;
-        height: 500px;
-    }
-}
-
-@media (max-width: 600px) {
-    .class-details-section {
-        min-height: auto;
-        padding-bottom: 2rem;
-    }
-    
-    .class-image {
-        width: 100%;
-        height: 300px;
+        object-fit: cover;
     }
 }
 
 .class-details-container {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    min-height: 881px;
+    min-height: clamp(500px, 70vh, 881px);
     width: 100%;
     align-items: stretch;
     background: transparent;
@@ -1220,8 +1108,9 @@ a:hover {
     align-items: flex-start;
     justify-content: flex-start;
     overflow: visible;
-    padding-top: 60px;
-    padding-left: 16%;
+    padding-top: clamp(2rem, 5vw, 60px);
+    padding-left: clamp(2rem, 10vw, 16%);
+    padding-right: clamp(1rem, 3vw, 2rem);
     height: 100%;
 }
 
@@ -1239,7 +1128,7 @@ a:hover {
 .class-title {
     font-family: 'P22Posada', serif;
     font-weight: 400;
-    font-size: 90px;
+    font-size: clamp(28px, 7vw, 90px);
     color: #E6D1B4;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     margin: 0 0 10px 0;
@@ -1249,9 +1138,9 @@ a:hover {
 .class-role {
     font-family: 'Corben', cursive;
     font-weight: 700;
-    font-size: 22px;
+    font-size: clamp(13px, 1.5vw, 22px);
     color: #8C9DEC;
-    margin: 0 0 15px 0;
+    margin: 0 0 clamp(8px, 1vw, 15px) 0;
 }
 
 .decorative-lines {
@@ -1261,13 +1150,13 @@ a:hover {
 }
 
 .line-long {
-    width: 284px;
+    width: clamp(100px, 20vw, 284px);
     height: 4px;
     background: #E6D1B4;
 }
 
 .line-short {
-    width: 40px;
+    width: clamp(20px, 3vw, 40px);
     height: 4px;
     background: #E6D1B4;
 }
@@ -1275,9 +1164,9 @@ a:hover {
 .class-full-description {
     font-family: 'Corben', cursive;
     font-weight: 400;
-    font-size: 24px;
+    font-size: clamp(13px, 1.8vw, 24px);
     color: #E6D1B4;
-    max-width: 600px;
+    max-width: min(600px, 90%);
     line-height: 1.4;
     margin: 0;
 }
@@ -1285,26 +1174,27 @@ a:hover {
 .talent-tree-panel {
     width: 100%;
     height: 100%;
-    margin-top: 40px;
+    margin-top: clamp(20px, 3vw, 40px);
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-right: 20%;
+    padding-right: clamp(1rem, 12vw, 20%);
+    padding-left: clamp(1rem, 2vw, 2rem);
     gap: 0;
 }
 
 .talent-tree-title {
     font-family: 'P22Posada', serif;
     font-weight: 400;
-    font-size: 48px;
+    font-size: clamp(24px, 4vw, 48px);
     color: #E6D1B4;
     text-align: center;
     display: inline-block;
     align-self: center;
     line-height: 1;
-    margin: 0 0 -3.5rem 0;
+    margin: 0 0 clamp(-2rem, -3vw, -3.5rem) 0;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     z-index: 10;
     position: relative;
@@ -1333,302 +1223,75 @@ a:hover {
 @media (max-width: 1600px) {
     .class-details-container {
         grid-template-columns: 1.2fr 1fr;
-        min-height: 750px;
-    }
-    
-    .class-display-panel {
-        padding-left: 20%;
-    }
-    
-    .talent-tree-panel {
-        padding-right: 10%;
-    }
-    
-    .class-image {
-        width: 100%;
-        height: 750px;
-        left: 0;
-    }
-    
-    .class-text-overlay {
-        padding-right: 1.5rem;
-    }
-    
-    .class-title {
-        font-size: 70px;
     }
 }
 
 @media (max-width: 1200px) {
-    .class-details-section {
-        min-height: auto;
-    }
-    
     .class-details-container {
         grid-template-columns: 1fr;
-        min-height: auto;
     }
     
     .class-display-panel {
         min-height: 400px;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        padding-left: 8rem;
-        padding-right: 3rem;
     }
     
     .talent-tree-panel {
         width: 100%;
-        height: 500px;
+        height: clamp(350px, 50vh, 500px);
         padding-right: 0;
         padding-left: 0;
     }
     
     .class-image {
         width: 100%;
-        height: 400px;
-        left: 0;
-        top: 0;
         opacity: 0.35;
-        object-fit: cover;
-    }
-    
-    .class-text-overlay {
-        padding-right: 0;
-        max-width: 100%;
-    }
-    
-    .class-title {
-        font-size: 50px;
-    }
-    
-    .class-role {
-        font-size: 18px;
-    }
-    
-    .class-full-description {
-        font-size: 18px;
     }
 }
 
 @media (max-width: 768px) {
-    .class-details-section {
-        min-height: auto;
-    }
-    
-    .class-details-container {
-        min-height: auto;
-        grid-template-columns: 1fr;
-    }
-    
     .class-display-panel {
         min-height: 300px;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        padding-left: 5rem;
-        padding-right: 2rem;
     }
     
     .talent-tree-panel {
-        width: 100%;
-        height: 400px;
-        padding: 0;
+        height: clamp(300px, 45vh, 400px);
     }
     
     .class-image {
-        height: 300px;
         opacity: 0.3;
-    }
-    
-    .class-text-overlay {
-        padding-right: 0;
-        max-width: 100%;
-    }
-    
-    .class-title {
-        font-size: 38px;
-    }
-    
-    .class-role {
-        font-size: 16px;
-    }
-    
-    .class-full-description {
-        font-size: 15px;
-        line-height: 1.5;
-    }
-    
-    .line-long {
-        width: 150px;
-    }
-    
-    .line-short {
-        width: 30px;
     }
 }
 
 @media (max-width: 600px) {
-    .class-details-container {
-        min-height: auto;
-        grid-template-columns: 1fr;
-    }
-    
     .class-display-panel {
         min-height: 250px;
-        padding: 1.5rem 1.5rem 1.5rem 4rem;
     }
     
     .talent-tree-panel {
-        width: 100%;
-        height: 350px;
-        padding: 0;
+        height: clamp(280px, 40vh, 350px);
     }
     
     .class-image {
-        height: 250px;
         opacity: 0.25;
-    }
-    
-    .class-text-overlay {
-        padding-right: 0;
-        max-width: 100%;
-    }
-    
-    .class-title {
-        font-size: 32px;
-    }
-    
-    .class-role {
-        font-size: 14px;
-    }
-    
-    .class-full-description {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-    
-    .line-long {
-        width: 120px;
-    }
-    
-    .line-short {
-        width: 24px;
     }
 }
 
 @media (max-width: 480px) {
-    .class-details-section {
-        min-height: auto;
-    }
-    
-    .class-details-container {
-        min-height: auto;
-    }
-    
     .class-display-panel {
         min-height: 220px;
-        padding: 1.5rem 1rem;
     }
     
     .talent-tree-panel {
-        width: 100%;
-        height: 280px;
-        padding: 0;
-    }
-    
-    .class-image {
-        height: 220px;
-        opacity: 0.25;
-    }
-    
-    .class-text-overlay {
-        padding-right: 0;
-        max-width: 100%;
-    }
-    
-    .class-title {
-        font-size: 28px;
-        line-height: 1;
-    }
-    
-    .class-role {
-        font-size: 13px;
-    }
-    
-    .class-full-description {
-        font-size: 13px;
-        line-height: 1.4;
-    }
-    
-    .line-long {
-        width: 100px;
-    }
-    
-    .line-short {
-        width: 20px;
+        height: clamp(250px, 35vh, 280px);
     }
 }
 
-/* Responsive Classes Navigation */
-@media (max-width: 768px) {
-    .archetype-selector,
-    .class-selector {
-        gap: 1.5rem;
-    }
-
-    .archetype-name {
-        font-size: 2.5rem;
-    }
-
-    .class-name {
-        font-size: 2rem;
-    }
-
-    .archetype-description,
-    .class-description {
-        font-size: 1rem;
-    }
-
-    .nav-arrow {
-        width: 40px;
-        height: 40px;
-    }
-
-    .nav-arrow svg {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .archetype-selector,
-    .class-selector {
-        gap: 1rem;
-    }
-
-    .archetype-name {
-        font-size: 2rem;
-    }
-
-    .class-name {
-        font-size: 1.5rem;
-    }
-
-    .archetype-description,
-    .class-description {
-        font-size: 0.9rem;
-    }
-
-    .nav-arrow {
-        width: 35px;
-        height: 35px;
-    }
-}
+/* Responsive Classes Navigation - most handled by clamp() */
 
 /* Class Cards & Abilities Section */
 .class-cards-section {
     background: #E6D1B4;
-    padding: 3rem 2rem;
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(0.75rem, 2vw, 2rem);
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -1648,24 +1311,24 @@ a:hover {
 .cards-container {
     max-width: 1600px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: clamp(20px, 3vw, 40px);
     position: relative;
     z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
+    gap: clamp(2rem, 4vw, 4rem);
     align-items: start;
 }
 
 .cards-left {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .cards-title {
     font-family: 'Corben', cursive;
-    font-size: 90px;
+    font-size: clamp(32px, 7vw, 90px);
     font-weight: 700;
     color: #151A32;
     text-align: center;
@@ -1673,7 +1336,7 @@ a:hover {
 }
 
 .cards-line {
-    width: 284px;
+    width: clamp(150px, 20vw, 284px);
     height: 4px;
     background: #8C9DEC;
     margin: 0 auto;
@@ -1683,11 +1346,11 @@ a:hover {
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: clamp(250px, 40vh, 500px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem 0;
+    margin: clamp(1rem, 2vw, 2rem) 0;
 }
 
 .carousel {
@@ -1710,9 +1373,9 @@ a:hover {
 
 .card {
     position: absolute;
-    width: 220px;
-    height: 330px;
-    border-radius: 15px;
+    width: clamp(110px, 15vw, 220px);
+    height: clamp(165px, 22.5vw, 330px);
+    border-radius: clamp(8px, 1vw, 15px);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
@@ -1731,35 +1394,35 @@ a:hover {
 
 .card.active {
     z-index: 50;
-    width: 280px;
-    height: 420px;
+    width: clamp(135px, 19vw, 280px);
+    height: clamp(202px, 28.5vw, 420px);
     transform: scale(1) translateY(0);
     opacity: 1;
 }
 
 .card.side {
     z-index: 30;
-    width: 200px;
-    height: 300px;
-    transform: scale(0.85) translateY(20px);
+    width: clamp(90px, 13.5vw, 200px);
+    height: clamp(135px, 20vw, 300px);
+    transform: scale(0.85) translateY(clamp(10px, 2vw, 20px));
     opacity: 0.6;
     filter: brightness(0.9);
 }
 
 .card.far {
     z-index: 20;
-    width: 170px;
-    height: 255px;
-    transform: scale(0.7) translateY(40px);
+    width: clamp(80px, 11.5vw, 170px);
+    height: clamp(120px, 17vw, 255px);
+    transform: scale(0.7) translateY(clamp(20px, 3vw, 40px));
     opacity: 0.3;
     filter: brightness(0.8);
 }
 
 .card.very-far {
     z-index: 10;
-    width: 140px;
-    height: 210px;
-    transform: scale(0.6) translateY(60px);
+    width: clamp(70px, 9.5vw, 140px);
+    height: clamp(105px, 14vw, 210px);
+    transform: scale(0.6) translateY(clamp(30px, 4vw, 60px));
     opacity: 0;
     filter: brightness(0.6);
     pointer-events: none;
@@ -1777,13 +1440,13 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    margin-top: clamp(1rem, 2vw, 2rem);
 }
 
 .characteristic-label {
     font-family: 'Corben', cursive;
-    font-size: 18px;
+    font-size: clamp(12px, 1.5vw, 18px);
     font-weight: 700;
     color: #8C9DEC;
     text-align: right;
@@ -1791,7 +1454,7 @@ a:hover {
 
 .characteristic-value {
     font-family: 'Corben', cursive;
-    font-size: 22px;
+    font-size: clamp(14px, 1.8vw, 22px);
     font-weight: 400;
     color: #151A32;
 }
@@ -1799,7 +1462,7 @@ a:hover {
 .cards-right {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .ability-block {
@@ -1810,7 +1473,7 @@ a:hover {
 
 .ability-title {
     font-family: 'Corben', cursive;
-    font-size: 40px;
+    font-size: clamp(20px, 3.5vw, 40px);
     font-weight: 700;
     color: #151A32;
     margin: 0;
@@ -1822,7 +1485,7 @@ a:hover {
 
 .ability-name {
     font-family: 'Corben', cursive;
-    font-size: 22px;
+    font-size: clamp(13px, 1.8vw, 22px);
     font-weight: 700;
     color: #8C9DEC;
     margin: 0;
@@ -1834,7 +1497,7 @@ a:hover {
 
 .ability-description {
     font-family: 'Corben', cursive;
-    font-size: 24px;
+    font-size: clamp(13px, 2vw, 24px);
     font-weight: 400;
     color: #151A32;
     line-height: 1.4;
@@ -1848,7 +1511,7 @@ a:hover {
 .ability-divider {
     height: 4px;
     background: #151A32;
-    width: 475px;
+    width: clamp(200px, 30vw, 475px);
 }
 
 .ability-divider-right {
@@ -1861,7 +1524,7 @@ a:hover {
 
 .spell-domains {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
     justify-content: flex-end;
     align-items: center;
 }
@@ -1874,15 +1537,15 @@ a:hover {
 }
 
 .domain-image {
-    width: 67px;
-    height: 67px;
+    width: clamp(50px, 6vw, 67px);
+    height: clamp(50px, 6vw, 67px);
     background: #586DCF;
-    border-radius: 8px;
+    border-radius: clamp(6px, 0.8vw, 8px);
 }
 
 .domain-name {
     font-family: 'Corben', cursive;
-    font-size: 16px;
+    font-size: clamp(11px, 1.2vw, 16px);
     font-weight: 400;
     color: #151A32;
     text-align: center;
@@ -1893,51 +1556,6 @@ a:hover {
 @media (max-width: 1200px) {
     .cards-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .cards-title {
-        font-size: 60px;
-    }
-
-    .carousel-wrapper {
-        height: 400px;
-    }
-
-    .card {
-        width: 180px;
-        height: 270px;
-    }
-
-    .card.active {
-        width: 230px;
-        height: 345px;
-    }
-
-    .card.side {
-        width: 160px;
-        height: 240px;
-    }
-
-    .spell-characteristic {
-        margin-top: 2rem;
-    }
-
-    .ability-title {
-        font-size: 32px;
-    }
-
-    .ability-name {
-        font-size: 20px;
-    }
-
-    .ability-description {
-        font-size: 20px;
-    }
-
-    .ability-divider {
-        width: 100%;
-        max-width: 400px;
     }
 
     .ability-title-right,
@@ -1956,236 +1574,21 @@ a:hover {
     }
 }
 
-@media (max-width: 1024px) {
-    .cards-title {
-        font-size: 52px;
-    }
-
-    .carousel-wrapper {
-        height: 380px;
-    }
-
-    .card {
-        width: 165px;
-        height: 248px;
-    }
-
-    .card.active {
-        width: 210px;
-        height: 315px;
-    }
-
-    .card.side {
-        width: 150px;
-        height: 225px;
-    }
-
-    .ability-divider {
-        max-width: 350px;
-    }
-}
-
 @media (max-width: 768px) {
-    .class-cards-section {
-        padding: 2rem 1rem;
-    }
-
-    .cards-container {
-        gap: 2.5rem;
-    }
-
-    .cards-title {
-        font-size: 44px;
-    }
-
-    .carousel-wrapper {
-        height: 320px;
-        margin: 1.5rem 0;
-    }
-
-    .card {
-        width: 135px;
-        height: 202px;
-    }
-
-    .card.active {
-        width: 170px;
-        height: 255px;
-    }
-
-    .card.side {
-        width: 115px;
-        height: 172px;
-    }
-
-    .card.far {
-        width: 150px;
-        height: 225px;
-    }
-
-    .ability-title {
-        font-size: 26px;
-    }
-
-    .ability-name {
-        font-size: 16px;
-    }
-
-    .ability-description {
-        font-size: 16px;
-    }
-
-    .characteristic-label {
-        font-size: 14px;
-    }
-
-    .characteristic-value {
-        font-size: 18px;
-    }
-
-    .ability-divider {
-        max-width: 300px;
-    }
-
-    .domain-image {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 600px) {
-    .class-cards-section {
-        padding: 1.5rem 0.75rem;
-    }
-
-    .cards-title {
-        font-size: 36px;
-    }
-
-    .carousel-wrapper {
-        height: 280px;
-    }
-
-    .card {
-        width: 120px;
-        height: 180px;
-    }
-
-    .card.active {
-        width: 150px;
-        height: 225px;
-    }
-
-    .card.side {
-        width: 100px;
-        height: 150px;
-    }
-
-    .ability-title {
-        font-size: 22px;
-    }
-
-    .ability-name {
-        font-size: 14px;
-    }
-
-    .ability-description {
-        font-size: 14px;
-    }
-
     .spell-characteristic {
         flex-direction: column;
         gap: 0.5rem;
-        margin-top: 1rem;
     }
 
     .characteristic-label {
         text-align: center;
-        font-size: 13px;
     }
+}
 
-    .characteristic-value {
-        font-size: 16px;
-    }
-
+@media (max-width: 600px) {
     .spell-domains {
-        gap: 1rem;
         justify-content: center;
     }
-
-    .domain-image {
-        width: 55px;
-        height: 55px;
-    }
-
-    .domain-name {
-        font-size: 12px;
-    }
-
-    .ability-divider {
-        max-width: 250px;
-    }
 }
 
-@media (max-width: 480px) {
-    .cards-title {
-        font-size: 32px;
-    }
 
-    .carousel-wrapper {
-        height: 250px;
-    }
-
-    .card {
-        width: 110px;
-        height: 165px;
-    }
-
-    .card.active {
-        width: 135px;
-        height: 202px;
-    }
-
-    .card.side {
-        width: 90px;
-        height: 135px;
-    }
-
-    .ability-title {
-        font-size: 20px;
-    }
-
-    .ability-name {
-        font-size: 13px;
-    }
-
-    .ability-description {
-        font-size: 13px;
-        line-height: 1.3;
-    }
-
-    .characteristic-label {
-        font-size: 12px;
-    }
-
-    .characteristic-value {
-        font-size: 14px;
-    }
-
-    .domain-image {
-        width: 50px;
-        height: 50px;
-    }
-
-    .domain-name {
-        font-size: 11px;
-    }
-
-    .ability-divider {
-        max-width: 200px;
-    }
-
-    .cards-container {
-        gap: 1.5rem;
-    }
-}
