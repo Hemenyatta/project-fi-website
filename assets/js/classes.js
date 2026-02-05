@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     role: "Protecteur de la Nature",
                     description: "Protecteur de la nature et tireur d'élite",
                     fullDescription: "Le Garde forestier est un maître du pistage et du tir à l'arc, capable de frapper ses cibles avec une précision mortelle depuis les ombres. Protecteur de la nature, il peut se fondre dans l'environnement et communiquer avec les créatures sauvages pour obtenir de l'aide.",
+                    talentTree: "class4",
                     image: "../images/classes/Vagabond.png"
                 },
                 {
@@ -194,8 +195,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (classFullDescription) classFullDescription.textContent = currentClass.fullDescription || currentClass.description;
         
         // Mettre à jour l'image de la classe
-        if (classImage && currentClass.image) {
-            classImage.src = currentClass.image;
+        // Si la classe n'a pas d'image dédiée (ou utilise l'image de l'archétype), on affiche un placeholder.
+        if (classImage) {
+            const placeholderSrc = "../images/classes/PLACEHOLDER.png";
+            const archetypeImageNames = new Set([
+                "Mystique.png",
+                "Artisan.png",
+                "Sentinelle.png",
+                "Sorcier.png",
+                "Vagabond.png"
+            ]);
+
+            const imageSrc = currentClass.image;
+            const fileName = typeof imageSrc === 'string'
+                ? imageSrc.split('/').pop()
+                : null;
+
+            const shouldUsePlaceholder = !imageSrc || archetypeImageNames.has(fileName);
+            classImage.src = shouldUsePlaceholder ? placeholderSrc : imageSrc;
             classImage.alt = currentClass.name;
         }
         

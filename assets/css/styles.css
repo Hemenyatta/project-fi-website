@@ -1199,8 +1199,10 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-right: clamp(1rem, 12vw, 20%);
+    /* Padding symétrique: évite de réduire inutilement la largeur de l'iframe
+       (sinon certains arbres larges se retrouvent scalés plus petit). */
     padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
     gap: 0;
 }
 

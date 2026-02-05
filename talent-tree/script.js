@@ -201,7 +201,69 @@ const talentTrees = {
           { from: 22, to: 23 }, { from: 23, to: 22 },
           { from: 23, to: 24 }, { from: 24, to: 23 }
         ]
-    }
+        },
+        class4: {
+                name: "Garde forestier",
+                talents: [
+                    { id: 1, name: "Point 1", description: "Description placeholder", image: "../images/talents/nature.png", x: 565, y: 555, prerequisites: [] },
+                    { id: 2, name: "Point 2", description: "Description placeholder", image: "../images/talents/nature.png", x: 714, y: 612, prerequisites: [] },
+                    { id: 3, name: "Point 3", description: "Description placeholder", image: "../images/talents/nature.png", x: 801, y: 647, prerequisites: [] },
+                    { id: 4, name: "Point 4", description: "Description placeholder", image: "../images/talents/nature.png", x: 656, y: 731, prerequisites: [] },
+                    { id: 5, name: "Point 5", description: "Description placeholder", image: "../images/talents/nature.png", x: 695, y: 809, prerequisites: [] },
+                    { id: 6, name: "Point 6", description: "Description placeholder", image: "../images/talents/nature.png", x: 566, y: 703, prerequisites: [] },
+                    { id: 7, name: "Point 7", description: "Description placeholder", image: "../images/talents/nature.png", x: 564, y: 793, prerequisites: [] },
+                    { id: 8, name: "Point 8", description: "Description placeholder", image: "../images/talents/nature.png", x: 472, y: 730, prerequisites: [] },
+                    { id: 9, name: "Point 9", description: "Description placeholder", image: "../images/talents/nature.png", x: 434, y: 807, prerequisites: [] },
+                    { id: 10, name: "Point 10", description: "Description placeholder", image: "../images/talents/nature.png", x: 408, y: 617, prerequisites: [] },
+                    { id: 11, name: "Point 11", description: "Description placeholder", image: "../images/talents/nature.png", x: 329, y: 646, prerequisites: [] },
+                    { id: 12, name: "Point 12", description: "Description placeholder", image: "../images/talents/nature.png", x: 341, y: 549, prerequisites: [] },
+                    { id: 13, name: "Point 13", description: "Description placeholder", image: "../images/talents/nature.png", x: 117, y: 548, prerequisites: [] },
+                    { id: 14, name: "Point 14", description: "Description placeholder", image: "../images/talents/nature.png", x: 280, y: 443, prerequisites: [] },
+                    { id: 15, name: "Point 15", description: "Description placeholder", image: "../images/talents/nature.png", x: 119, y: 384, prerequisites: [] },
+                    { id: 16, name: "Point 16", description: "Description placeholder", image: "../images/talents/nature.png", x: 476, y: 389, prerequisites: [] },
+                    { id: 17, name: "Point 17", description: "Description placeholder", image: "../images/talents/nature.png", x: 357, y: 161, prerequisites: [] },
+                    { id: 18, name: "Point 18", description: "Description placeholder", image: "../images/talents/nature.png", x: 565, y: 353, prerequisites: [] },
+                    { id: 19, name: "Point 19", description: "Description placeholder", image: "../images/talents/nature.png", x: 566, y: 62, prerequisites: [] },
+                    { id: 20, name: "Point 20", description: "Description placeholder", image: "../images/talents/nature.png", x: 656, y: 388, prerequisites: [] },
+                    { id: 21, name: "Point 21", description: "Description placeholder", image: "../images/talents/nature.png", x: 772, y: 160, prerequisites: [] },
+                    { id: 22, name: "Point 22", description: "Description placeholder", image: "../images/talents/nature.png", x: 852, y: 445, prerequisites: [] },
+                    { id: 23, name: "Point 23", description: "Description placeholder", image: "../images/talents/nature.png", x: 1009, y: 385, prerequisites: [] },
+                    { id: 24, name: "Point 24", description: "Description placeholder", image: "../images/talents/nature.png", x: 792, y: 551, prerequisites: [] },
+                    { id: 25, name: "Point 25", description: "Description placeholder", image: "../images/talents/nature.png", x: 1018, y: 551, prerequisites: [] }
+                ],
+                links: [
+                    { from: 1, to: 2 }, { from: 2, to: 1 },
+                    { from: 2, to: 3 }, { from: 3, to: 2 },
+                    { from: 1, to: 4 }, { from: 4, to: 1 },
+                    { from: 4, to: 5 }, { from: 5, to: 4 },
+                    { from: 1, to: 6 }, { from: 6, to: 1 },
+                    { from: 6, to: 7 }, { from: 7, to: 6 },
+                    { from: 1, to: 8 }, { from: 8, to: 1 },
+                    { from: 8, to: 9 }, { from: 9, to: 8 },
+                    { from: 1, to: 10 }, { from: 10, to: 1 },
+                    { from: 10, to: 11 }, { from: 11, to: 10 },
+                    { from: 1, to: 12 }, { from: 12, to: 1 },
+                    { from: 12, to: 13 }, { from: 13, to: 12 },
+                    { from: 1, to: 14 }, { from: 14, to: 1 },
+                    { from: 13, to: 14 }, { from: 14, to: 13 },
+                    { from: 14, to: 15 }, { from: 15, to: 14 },
+                    { from: 14, to: 16 }, { from: 16, to: 14 },
+                    { from: 1, to: 16 }, { from: 16, to: 1 },
+                    { from: 16, to: 17 }, { from: 17, to: 16 },
+                    { from: 1, to: 18 }, { from: 18, to: 1 },
+                    { from: 16, to: 18 }, { from: 18, to: 16 },
+                    { from: 18, to: 19 }, { from: 19, to: 18 },
+                    { from: 1, to: 20 }, { from: 20, to: 1 },
+                    { from: 18, to: 20 }, { from: 20, to: 18 },
+                    { from: 20, to: 21 }, { from: 21, to: 20 },
+                    { from: 1, to: 22 }, { from: 22, to: 1 },
+                    { from: 20, to: 22 }, { from: 22, to: 20 },
+                    { from: 22, to: 23 }, { from: 23, to: 22 },
+                    { from: 1, to: 24 }, { from: 24, to: 1 },
+                    { from: 24, to: 25 }, { from: 25, to: 24 },
+                    { from: 22, to: 25 }, { from: 25, to: 22 }
+                ]
+        }
 };
 
 function generatePrerequisites(talents, links) {
@@ -228,6 +290,9 @@ Object.keys(talentTrees).forEach(classKey => {
     );
 });
 
+const TREE_TARGET_HEIGHT = 1500;
+const TREE_PADDING = 60;
+
 function normalizeAllTalents() {
     Object.keys(talentTrees).forEach(classKey => {
         const talents = talentTrees[classKey].talents;
@@ -241,23 +306,37 @@ function normalizeAllTalents() {
             if (talent.y > maxY) maxY = talent.y;
         });
 
-        const width = maxX - minX;
-        const height = maxY - minY;
-        const scaleX = 1200 / width;
-        const scaleY = 1500 / height;
-        const scale = Math.min(scaleX, scaleY) * 0.9;
+        const width = Math.max(1, maxX - minX);
+        const height = Math.max(1, maxY - minY);
 
-        const offsetX = (1200 - width * scale) / 2;
-        const offsetY = (1500 - height * scale) / 2;
+        // Objectif: même hauteur pour tous les arbres.
+        // On fixe une hauteur de canvas commune et on laisse la largeur varier.
+        const usableHeight = Math.max(1, TREE_TARGET_HEIGHT - TREE_PADDING * 2);
+        const scale = usableHeight / height;
+
+        const canvasWidth = width * scale + TREE_PADDING * 2;
+        const canvasHeight = TREE_TARGET_HEIGHT;
+
+        talentTrees[classKey].canvas = { width: canvasWidth, height: canvasHeight };
 
         talents.forEach(talent => {
-            talent.x = (talent.x - minX) * scale + offsetX;
-            talent.y = (talent.y - minY) * scale + offsetY;
+            talent.x = (talent.x - minX) * scale + TREE_PADDING;
+            talent.y = (talent.y - minY) * scale + TREE_PADDING;
         });
     });
 }
 
 normalizeAllTalents();
+
+function applyCanvasToTreeElement(treeEl) {
+    if (!treeEl) return;
+    const classKey = treeEl.dataset.classKey || currentClass;
+    const canvas = talentTrees[classKey]?.canvas;
+    if (!canvas) return;
+
+    treeEl.style.width = `${canvas.width}px`;
+    treeEl.style.height = `${canvas.height}px`;
+}
 
 let currentTalents = [];
 let currentLinks = [];
@@ -288,6 +367,8 @@ function initTree() {
     tree.dataset.classKey = currentClass;
     tree.dataset.index = 0;
 
+    applyCanvasToTreeElement(tree);
+
     treeContainer.appendChild(tree);
     treeSlot.appendChild(treeContainer);
     carousel.appendChild(treeSlot);
@@ -302,6 +383,8 @@ function renderTalentTree() {
     if (!activeSlot) return;
     const tree = activeSlot.querySelector(`#tree-${currentIndex}`);
     if (!tree) return;
+
+    applyCanvasToTreeElement(tree);
 
     let activeTalents = Array.from(tree.querySelectorAll('.node.active')).map(n => parseInt(n.dataset.id));
     if (!activeTalents.includes(1)) {
@@ -439,13 +522,23 @@ function adjustCoordinates() {
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
 
+    // Dimensions du canvas (non affectées par le transform: scale)
+    const treeWidth = tree.clientWidth || parseFloat(getComputedStyle(tree).width) || 1200;
+    const treeHeight = tree.clientHeight || parseFloat(getComputedStyle(tree).height) || 1500;
+
     const padding = 20;
     const availableWidth = containerWidth - (padding * 2);
     const availableHeight = containerHeight - (padding * 2);
 
-    const scaleX = availableWidth / 1200;
-    const scaleY = availableHeight / 1500;
-    const scale = Math.min(scaleX, scaleY, 1);
+    const scaleX = availableWidth / treeWidth;
+    const scaleY = availableHeight / treeHeight;
+
+    // Laisse un peu de marge pour éviter les coupes (notamment avec le hover).
+    const FIT_MARGIN = 0.9;
+
+    // Autorise le scale-up afin que les arbres plus petits remplissent la hauteur,
+    // mais avec une marge visuelle constante.
+    const scale = Math.min(scaleX, scaleY) * FIT_MARGIN;
 
     document.documentElement.style.setProperty('--scale-factor', scale);
 }
